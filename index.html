@@ -1,0 +1,3347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akoya Pearl Strand Necklace — ECHOVELLE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 400;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+    .serif { font-family: 'Libre Baskerville', Baskerville, Georgia, serif; }
+    .sans { font-family: 'Montserrat', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Libre Baskerville', Baskerville, Georgia, serif; font-weight: 700; }
+    :root {
+      --gold: #8B7D4A;
+      --gold-light: #b5a272;
+      --gold-dark: #6d6238;
+      --cream: #faf9f7;
+      --cream-dark: #f3f1ec;
+      --charcoal: #1a1a1a;
+      --warm-gray: #6b6560;
+      --light-gray: #e8e5df;
+      --white: #ffffff;
+      --navy: #2c3350;
+    }
+    ::selection { background: #2C3350; color: #fff; }
+    ::-moz-selection { background: #2C3350; color: #fff; }
+    .container { max-width: 1600px; margin: 0 auto; padding: 0 60px; }
+
+    /* ========== ANNOUNCEMENT BAR (identical to v1) ========== */
+    .announcement {
+      background: #2c3350; color: #fff; text-align: center;
+      padding: 12px 20px; font-size: 11px; letter-spacing: 0.2em;
+      text-transform: uppercase; font-weight: 400;
+      position: relative; z-index: 1001; overflow: hidden; height: 40px;
+    }
+    .announcement-slider { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; }
+    .announcement-slide { position: absolute; width: 100%; opacity: 0; transform: translateY(100%); transition: opacity 0.5s ease, transform 0.5s ease; white-space: nowrap; }
+    .announcement-slide.active { opacity: 1; transform: translateY(0); }
+    .announcement-slide.exit-up { opacity: 0; transform: translateY(-100%); }
+    .announcement-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: none; border: none; color: #fff; font-size: 14px; padding: 4px 10px; cursor: pointer; opacity: 0.6; transition: opacity 0.3s; z-index: 2; }
+    .announcement-arrow:hover { opacity: 1; }
+    .announcement-arrow--prev { left: 20px; }
+    .announcement-arrow--next { right: 20px; }
+
+    /* ========== HEADER / NAV (identical to v1) ========== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.3s ease;
+    }
+    .header.scrolled,
+    .header.mega-open {
+      background: var(--white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .header .main-nav > li > a { color: var(--charcoal); font-weight: 500; }
+    .header .nav-icon { color: var(--charcoal); }
+    .header .logo-img { filter: none; }
+    .header.header-hidden { transform: translateY(-100%); }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      padding: 0 40px;
+      height: 68px;
+    }
+    .logo-link { margin-right: 40px; flex-shrink: 0; position: relative; }
+    .logo-img { width: 250px; height: 40px; object-fit: contain; transition: filter 0.35s; }
+    .main-nav {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+      align-items: center;
+      flex: 1;
+    }
+    .main-nav > li { position: static; }
+    .main-nav > li > a {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 400;
+      color: var(--charcoal);
+      transition: color 0.2s;
+      padding: 24px 0;
+      display: block;
+    }
+    .main-nav > li > a:hover,
+    .main-nav > li:hover > a { color: var(--gold); }
+    .main-nav > li > a::after { display: none; }
+    .nav-utils {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-left: auto;
+      flex-shrink: 0;
+    }
+    .nav-icon {
+      width: 20px;
+      height: 20px;
+      color: var(--charcoal);
+      transition: color 0.3s;
+    }
+    .nav-icon:hover { color: var(--gold-light); }
+
+    /* ========== MEGA MENU (identical to v1) ========== */
+    .mega-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      background: var(--white);
+      border-top: 1px solid var(--light-gray);
+      border-bottom: 1px solid var(--light-gray);
+      display: none;
+      padding: 36px 40px 40px;
+      z-index: 999;
+    }
+    .main-nav > li:hover .mega-menu { display: flex; }
+    .mega-sidebar {
+      width: 220px;
+      flex-shrink: 0;
+      padding-right: 36px;
+      border-right: 1px solid var(--light-gray);
+    }
+    .mega-sidebar a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 600;
+      color: var(--charcoal);
+      padding: 10px 0;
+      transition: color 0.2s;
+      text-decoration: none;
+    }
+    .mega-sidebar a:hover { color: var(--gold); }
+    .mega-sidebar a::after {
+      content: '>';
+      font-weight: 400;
+      font-size: 13px;
+    }
+    .mega-sidebar .mega-sidebar-plain::after { content: ''; }
+    .mega-sidebar-bottom {
+      margin-top: auto;
+      padding-top: 24px;
+      border-top: 1px solid var(--light-gray);
+    }
+    .mega-sidebar-bottom a {
+      font-weight: 400;
+      color: var(--warm-gray);
+      font-size: 11px;
+    }
+    .mega-sidebar-bottom a::after { content: ''; }
+    .mega-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      padding-left: 36px;
+    }
+    .mega-item { text-align: center; cursor: pointer; }
+    .mega-item:hover .mega-item-img { opacity: 0.85; }
+    .mega-item-img {
+      aspect-ratio: 1;
+      background: #f2f0ec;
+      margin-bottom: 10px;
+      background-size: cover;
+      background-position: center;
+      transition: opacity 0.3s;
+    }
+    .mega-item-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--charcoal);
+      font-weight: 400;
+    }
+
+    /* ========== HERO STORY CAROUSEL ========== */
+    .hero-story {
+      position: relative;
+      background: #ffffff;
+      overflow: hidden;
+      padding-top: 100px;
+    }
+    .hero-story-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+      padding: 0 24px;
+    }
+    .hero-story-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+    .hero-story-heading-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #2c3350;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hero-story-heading-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      color: #2c3350;
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .hero-story { padding-top: 64px; }
+      .hero-story-heading { margin-bottom: 36px; }
+      .hero-story-heading-title { font-size: 28px; }
+    }
+    .hero-story-stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      column-gap: 48px;
+      height: 640px;
+    }
+    .hero-story-peek,
+    .hero-story-main {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-story-peek {
+      align-self: center;
+      height: 72%;
+    }
+    .hero-story-main {
+      height: 100%;
+    }
+    .hero-story-peek img,
+    .hero-story-main img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .hero-story-peek img.active,
+    .hero-story-main img.active { opacity: 1; }
+    .hero-story-peek::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(20,20,20,0.15);
+      pointer-events: none;
+    }
+    .hero-story-panel {
+      position: absolute;
+      top: 50%;
+      left: 40px;
+      transform: translateY(-50%);
+      width: 280px;
+      height: 340px;
+      background: #fff;
+      padding: 26px 28px 30px;
+      z-index: 4;
+      display: flex;
+      flex-direction: column;
+    }
+    .hero-story-nav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+    .hero-story-arrow {
+      width: 32px;
+      height: 32px;
+      border: 1px solid #1a1a1a;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      color: #1a1a1a;
+      transition: background 0.25s, color 0.25s;
+    }
+    .hero-story-arrow:hover { background: #1a1a1a; color: #fff; }
+    .hero-story-arrow svg { width: 14px; height: 14px; }
+    .hero-story-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #1a1a1a;
+      line-height: 1.5;
+      margin-bottom: 14px;
+    }
+    .hero-story-body {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #3a3a3a;
+      font-weight: 400;
+      transition: opacity 0.35s ease;
+    }
+    .hero-story-text { transition: opacity 0.35s ease; }
+    .hero-story-text.fading { opacity: 0; }
+
+    @media (max-width: 1024px) {
+      .hero-story-stage {
+        grid-template-columns: 90px 1fr;
+        column-gap: 28px;
+        height: 420px;
+      }
+      .hero-story-panel {
+        left: 24px;
+        width: 240px;
+        height: 300px;
+        padding: 22px 22px 26px;
+      }
+    }
+    @media (max-width: 768px) {
+      .hero-story-stage {
+        grid-template-columns: 1fr;
+        min-height: 460px;
+      }
+      .hero-story-peek { display: none; }
+      .hero-story-panel {
+        left: 20px;
+        right: 20px;
+        width: auto;
+        max-width: 340px;
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        padding: 20px 22px 24px;
+      }
+    }
+
+    /* ========== PDP V2 — AG1-inspired clean layout ========== */
+    .pdp2-breadcrumb {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 60px 4px;
+      font-size: 13px;
+      color: var(--warm-gray);
+      letter-spacing: 0;
+    }
+    .pdp2-breadcrumb a { color: var(--warm-gray); transition: color 0.2s; display: inline-flex; align-items: center; gap: 4px; }
+    .pdp2-breadcrumb a:hover { color: var(--navy); }
+    .pdp2-breadcrumb .sep { margin: 0 10px; color: #cfcbc4; }
+    .pdp2-breadcrumb .current { color: var(--charcoal); }
+
+    .pdp2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 8px 60px 80px;
+    }
+
+    /* ---- Left: Main image tile + horizontal thumb strip ---- */
+    .pdp2-gallery { position: sticky; top: 90px; align-self: start; }
+    .pdp2-main {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      background: #ffffff;
+      overflow: hidden;
+      border-radius: 2px;
+      border: 1px solid var(--light-gray);
+    }
+    .pdp2-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pdp2-slide.active { opacity: 1; }
+    .pdp2-slide img {
+      max-width: 86%;
+      max-height: 86%;
+      object-fit: contain;
+    }
+    .pdp2-slide.cover img {
+      max-width: 100%;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .pdp2-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      background: rgba(255,255,255,0.65);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #5a5a5a;
+      transition: background 0.25s, color 0.25s;
+      z-index: 2;
+      backdrop-filter: blur(4px);
+    }
+    .pdp2-arrow:hover { background: #fff; color: var(--navy); }
+    .pdp2-arrow svg { width: 14px; height: 14px; }
+    .pdp2-arrow--prev { left: 14px; }
+    .pdp2-arrow--next { right: 14px; }
+
+    .pdp2-thumbs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .pdp2-thumb {
+      width: 82px;
+      aspect-ratio: 1;
+      overflow: hidden;
+      background: #ffffff;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.25s, opacity 0.25s;
+      opacity: 0.55;
+      border-radius: 2px;
+    }
+    .pdp2-thumb.active { border-color: #1a1a1a; opacity: 1; }
+    .pdp2-thumb:hover { opacity: 1; }
+    .pdp2-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ---- Right: Info panel ---- */
+    .pdp2-info {
+      padding: 0;
+      max-width: 560px;
+    }
+    .pdp2-category {
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .pdp2-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 34px;
+      font-weight: 700;
+      color: #2c3350;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.01em;
+    }
+    .pdp2-rating {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 20px;
+    }
+    .pdp2-rating-stars { color: #2c3350; font-size: 13px; letter-spacing: 2px; }
+    .pdp2-rating-text { font-size: 13px; color: var(--charcoal); }
+    .pdp2-rating-link {
+      font-size: 13px;
+      color: var(--charcoal);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      margin-left: 6px;
+    }
+
+    .pdp2-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .pdp2-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .pdp2-price-original {
+      font-size: 16px;
+      color: var(--warm-gray);
+      text-decoration: line-through;
+      font-weight: 400;
+    }
+    .pdp2-price-save {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #2c3350;
+      background: #e1e5ef;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+    .pdp2-price-sub {
+      font-size: 13px;
+      color: var(--warm-gray);
+      margin-bottom: 4px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .pdp2-pricing-body {
+      margin: 14px 0 18px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      color: #3a3a3a;
+      line-height: 1.7;
+    }
+    .pdp2-pricing-body p { margin-bottom: 10px; }
+    .pdp2-pricing-body ul { list-style: none; padding: 0; margin: 0; }
+    .pdp2-pricing-body li {
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .pdp2-pricing-body li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 6px;
+      height: 6px;
+      background: #8B7D4A;
+      border-radius: 50%;
+    }
+    .pdp2-pricing-body strong { color: #1a1a1a; font-weight: 600; }
+
+    .pdp2-price-note {
+      font-size: 13px;
+      color: var(--warm-gray);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .pdp2-divider {
+      border: none;
+      border-top: 1px solid var(--light-gray);
+      margin: 0 0 24px;
+    }
+
+    /* Color option (compact) */
+    .pdp2-option-block { margin-bottom: 22px; }
+    .pdp2-opt-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13px;
+      color: var(--charcoal);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+    .pdp2-opt-label .pdp2-opt-value {
+      font-weight: 400;
+      color: var(--warm-gray);
+    }
+    .pdp2-opt-size-guide {
+      font-size: 12px;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      color: var(--charcoal);
+    }
+    .pdp2-colors {
+      display: flex;
+      gap: 10px;
+    }
+    .pdp2-color {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+    .pdp2-color:hover { transform: scale(1.05); }
+    .pdp2-color.active::after {
+      content: '';
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      border: 1.5px solid #2c3350;
+    }
+    .pdp2-lengths {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+    }
+    .pdp2-length {
+      padding: 13px 0;
+      text-align: center;
+      border: 1px solid var(--light-gray);
+      font-size: 14px;
+      color: var(--charcoal);
+      cursor: pointer;
+      transition: all 0.25s;
+      border-radius: 2px;
+      background: #fff;
+    }
+    .pdp2-length.active {
+      background: #2c3350;
+      color: #fff;
+      border-color: #2c3350;
+    }
+    .pdp2-length:hover { border-color: #2c3350; }
+
+    /* Feature strip (icon + label, 3 columns) */
+    .pdp2-feature-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 10px 0 24px;
+      margin-bottom: 16px;
+    }
+    .pdp2-feature {
+      text-align: center;
+      padding: 0 4px;
+    }
+    .pdp2-feature-icon {
+      width: 48px;
+      height: 48px;
+      color: #1a1a1a;
+      margin: 0 auto 14px;
+      display: block;
+    }
+    .pdp2-feature-label {
+      display: block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #2c3350;
+      line-height: 1.5;
+    }
+
+    /* Primary CTA stack (cart / buy / paypal / more) */
+    .pdp2-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+    .pdp2-btn-cart {
+      width: 100%;
+      padding: 16px;
+      background: #fff;
+      color: #1a1a1a;
+      font-size: 15px;
+      font-weight: 400;
+      border: 2px solid #1a1a1a;
+      transition: all 0.3s;
+    }
+    .pdp2-btn-cart:hover { background: #1a1a1a; color: #fff; }
+    .pdp2-btn-buy {
+      width: 100%;
+      padding: 16px;
+      background: #2c3350;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 500;
+      border: 2px solid #2c3350;
+      transition: all 0.3s;
+    }
+    .pdp2-btn-buy:hover { background: #1e2440; }
+    .pdp2-btn-paypal {
+      width: 100%;
+      padding: 14px;
+      background: #ffc439;
+      color: #111;
+      font-size: 15px;
+      font-weight: 400;
+      border: none;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .pdp2-btn-paypal:hover { background: #f0b830; }
+    .pdp2-more-payments {
+      display: block;
+      text-align: center;
+      font-size: 13px;
+      color: #3a3a3a;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      padding: 4px 0;
+    }
+    .pdp2-more-payments:hover { color: #1a1a1a; }
+
+    /* Accordions (AG1 style with + / −) */
+    .pdp2-accs { margin-top: 4px; }
+    .pdp2-acc {
+      border-top: 1px solid var(--light-gray);
+    }
+    .pdp2-acc:last-child { border-bottom: 1px solid var(--light-gray); }
+    .pdp2-acc-hd {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1a1a;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .pdp2-acc-hd:hover { color: #2c3350; }
+    .pdp2-acc-icon {
+      font-size: 22px;
+      font-weight: 300;
+      line-height: 1;
+      color: #5a5a5a;
+      transition: transform 0.3s;
+      width: 20px;
+      text-align: center;
+    }
+    .pdp2-acc-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .pdp2-acc.open .pdp2-acc-body { max-height: 600px; }
+    .pdp2-acc-content {
+      padding: 0 0 22px;
+      font-size: 14px;
+      color: #3a3a3a;
+      line-height: 1.75;
+    }
+    .pdp2-acc-content p { margin-bottom: 8px; }
+    .pdp2-acc-content p:last-child { margin-bottom: 0; }
+    .pdp2-acc-content ul { padding-left: 18px; }
+    .pdp2-acc-content li { margin-bottom: 4px; }
+    .pdp2-acc-content strong { color: #1a1a1a; font-weight: 600; }
+
+    /* ========== MATRIX COMPARE (AG1-style feature table) ========== */
+    .matrix {
+      background: #fff;
+      padding: 110px 0;
+    }
+    .matrix-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #2c3350;
+      line-height: 1.2;
+      margin-bottom: 64px;
+      max-width: none;
+      white-space: nowrap;
+      letter-spacing: normal;
+      text-align: center;
+    }
+    @media (max-width: 1100px) {
+      .matrix-title { white-space: normal; }
+    }
+    .matrix-title em {
+      font-style: normal;
+      color: inherit;
+      font-weight: inherit;
+      position: relative;
+      display: inline-block;
+    }
+    .matrix-title em::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 14px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none'><path d='M0 6 Q 6 0 12 6 T 24 6' stroke='%238B7D4A' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+      background-repeat: repeat-x;
+      background-size: 24px 12px;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .matrix-title.in-view em::after { clip-path: inset(0 0 0 0); }
+
+    .matrix-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .matrix-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      align-items: stretch;
+    }
+    .matrix-cell {
+      padding: 30px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--light-gray);
+    }
+    .matrix-cell--label {
+      justify-content: flex-start;
+      font-size: 15px;
+      color: var(--charcoal);
+      font-weight: 500;
+      padding-left: 0;
+    }
+    .matrix-cell--head {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--charcoal);
+      padding: 28px 20px;
+      border-bottom: none;
+    }
+    .matrix-cell--brand {
+      background: var(--navy);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .matrix-cell--brand-head {
+      background: var(--navy);
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      padding: 40px 20px;
+      border-bottom: none;
+    }
+    .matrix-brand-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.22em;
+    }
+    .matrix-brand-mark {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      color: var(--gold-light);
+      letter-spacing: 0.3em;
+      margin-top: 6px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .matrix-row:last-child .matrix-cell--brand {
+      border-bottom: none;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .matrix-check {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .matrix-check svg { width: 16px; height: 16px; }
+    .matrix-x {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #efece6;
+      color: #bfb9ad;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .matrix-x svg { width: 14px; height: 14px; }
+    .matrix-partial {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: #e4dfd2;
+      color: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .matrix-footnote {
+      font-size: 12px;
+      color: var(--warm-gray);
+      margin-top: 28px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .matrix { padding: 80px 0; }
+      .matrix-title { font-size: 36px; margin-bottom: 48px; }
+      .matrix-grid { grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr; }
+      .matrix-cell { padding: 22px 10px; }
+      .matrix-cell--head { font-size: 12px; padding: 22px 8px; text-align: center; }
+      .matrix-cell--label { font-size: 13px; padding-right: 10px; }
+      .matrix-brand-name { font-size: 16px; }
+    }
+    @media (max-width: 768px) {
+      .matrix-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+      .matrix-grid { min-width: 720px; }
+      .matrix-title { font-size: 26px; }
+    }
+
+    /* ========== EDITORIAL STORY BAND ========== */
+    .story-band {
+      background: #faf7f2;
+      padding: 110px 0;
+    }
+    .story-band-heading {
+      text-align: center;
+      margin-bottom: 72px;
+    }
+    .story-band-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .story-band-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #2c3350;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .story-band-title em { font-style: normal; color: inherit; font-weight: inherit; }
+    .story-band-sub {
+      font-size: 14px;
+      font-weight: 400;
+      color: #2c3350;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .story-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+    .story-card {
+      background: #fff;
+      padding: 0;
+      position: relative;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .story-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(44,51,80,0.08); }
+    .story-card-img {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+    }
+    .story-card-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+    .story-card:hover .story-card-img img { transform: scale(1.05); }
+    .story-card-body { padding: 32px 28px 36px; }
+    .story-card-num {
+      display: inline-block;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .story-card-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .story-card-desc {
+      font-size: 14px;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+
+    /* ========== GRADING SELECTOR ========== */
+    .grade-v2 {
+      background: #FAF9F7;
+      padding: 110px 0;
+    }
+    .grade-v2-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .grade-pill { position: relative; }
+    .grade-pill-tag {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .grade-pill-tag-label {
+      font-family: 'Libre Baskerville', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: #2c3350;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .grade-pill-tag-diamond {
+      width: 5px;
+      height: 5px;
+      background: #2c3350;
+      transform: rotate(45deg);
+      margin-bottom: 7px;
+    }
+    .grade-v2-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+    }
+    .grade-v2-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #2c3350;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .grade-v2-title em { font-style: normal; color: inherit; font-weight: inherit; }
+    .grade-v2-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: #2c3350;
+      line-height: 1.6;
+      max-width: 620px;
+      margin: 0 auto;
+    }
+    .grade-v2-pills {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .grade-pill {
+      padding: 12px 28px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: var(--navy);
+      border: 1px solid var(--light-gray);
+      border-radius: 40px;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: #fff;
+    }
+    .grade-pill:hover { border-color: var(--gold); }
+    .grade-pill.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+    .grade-panel {
+      display: none;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+      background: #ffffff;
+      padding: 40px 48px;
+    }
+    .grade-panel.active { display: grid; }
+    .grade-panel-img {
+      aspect-ratio: 4 / 3;
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .grade-panel-img img { max-width: 85%; max-height: 85%; object-fit: contain; }
+    .grade-panel-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+    .grade-panel-head-text { flex: 1; }
+    .grade-panel-pearls {
+      width: 140px;
+      height: 70px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+    .grade-panel-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.1;
+      letter-spacing: 0.02em;
+    }
+    .grade-panel-rarity {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0;
+    }
+    .grade-panel-specs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px 40px;
+      margin-bottom: 28px;
+    }
+    .grade-panel-spec-key {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 4px;
+    }
+    .grade-panel-spec-val {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: var(--navy);
+      font-weight: 500;
+    }
+    .grade-panel-note {
+      font-size: 13px;
+      color: var(--warm-gray);
+      line-height: 1.9;
+      padding-top: 20px;
+      border-top: 1px solid var(--light-gray);
+    }
+    .grade-shop-btn {
+      display: inline-block;
+      margin-top: 22px;
+      padding: 13px 34px;
+      background: #2c3350;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 600;
+      border: 1px solid #2c3350;
+      transition: background 0.3s, color 0.3s;
+    }
+    .grade-shop-btn:hover {
+      background: transparent;
+      color: #2c3350;
+    }
+
+    /* ========== CURATED CAROUSEL ========== */
+    .curated {
+      background: #2c3350;
+      padding: 90px 0;
+      overflow: hidden;
+    }
+    .curated-heading {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 56px;
+      padding: 0 24px;
+    }
+    .curated-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #8B7D4A;
+      margin-bottom: 16px;
+    }
+    .curated-heading-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .curated-heading-sub {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 14px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .curated-heading { margin-bottom: 40px; }
+      .curated-heading-title { font-size: 28px; }
+    }
+    .curated-tags {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+      padding: 0 24px;
+    }
+    .curated-tag {
+      padding: 10px 22px;
+      border: 1px solid rgba(255,255,255,0.5);
+      border-radius: 30px;
+      background: transparent;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      color: #ffffff;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+    .curated-tag.active { background: #ffffff; color: #2c3350; }
+    .curated-tag-dot { color: #8B7D4A; margin: 0 8px; }
+    .curated-tag.active .curated-tag-dot { color: #c8b57a; }
+    .curated-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+      min-height: 640px;
+    }
+    #curatedPrev, #curatedNext {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+    }
+    #curatedPrev { left: 28%; }
+    #curatedNext { right: 28%; }
+    @media (max-width: 1024px) {
+      #curatedPrev { left: 20px; }
+      #curatedNext { right: 20px; }
+    }
+    .curated-arrow {
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: opacity 0.25s;
+    }
+    .curated-arrow:hover { opacity: 0.6; }
+    .curated-arrow svg { width: 28px; height: 28px; }
+    .curated-track {
+      position: relative;
+      flex: 1;
+      max-width: 1500px;
+      min-height: 640px;
+      margin: 0 auto;
+    }
+    .curated-item {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 400px;
+      transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.45s ease;
+      text-align: center;
+      transform-origin: center center;
+    }
+    .curated-item[data-slot="-1"] {
+      transform: translate(-50%, -40px) translateX(-1200px) rotate(-15deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .curated-item[data-slot="0"] {
+      transform: translate(-50%, -40px) translateX(-960px) rotate(-15deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .curated-item[data-slot="1"] {
+      transform: translate(-50%, -40px) translateX(-540px) rotate(-15deg);
+      z-index: 1;
+    }
+    .curated-item[data-slot="2"] {
+      transform: translate(-50%, 80px) scale(1.15);
+      z-index: 2;
+    }
+    .curated-item[data-slot="3"] {
+      transform: translate(-50%, -40px) translateX(540px) rotate(15deg);
+      z-index: 1;
+    }
+    .curated-item[data-slot="4"] {
+      transform: translate(-50%, -40px) translateX(960px) rotate(15deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .curated-item[data-slot="5"] {
+      transform: translate(-50%, -40px) translateX(1200px) rotate(15deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+    .curated-item-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .curated-item-link:hover .curated-item-img img { transform: scale(1.05); }
+    .curated-item-img {
+      position: relative;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 20px 40px rgba(30,25,15,0.1);
+    }
+    .curated-item-img img { transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1); }
+    .curated-item-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .curated-item-tag {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: #1a1a1a;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+    .curated-item-label {
+      margin-top: 20px;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 18px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .curated-item--center .curated-item-label {
+      font-size: 24px;
+      letter-spacing: 0.12em;
+    }
+    .curated-item-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      margin-top: 6px;
+      letter-spacing: 0.04em;
+    }
+    .curated-item-cta {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 11px 28px;
+      background: #ffffff;
+      color: #2c3350;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      border: 1px solid #ffffff;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.25s, color 0.25s;
+    }
+    .curated-item-cta:hover { background: transparent; color: #ffffff; }
+    @media (max-width: 1024px) {
+      .curated { padding: 64px 0 72px; }
+      .curated-track { gap: 28px; }
+      .curated-item--center .curated-item-label { font-size: 20px; }
+      .curated-item-label { font-size: 15px; }
+    }
+    @media (max-width: 768px) {
+      .curated-stage { padding: 0 12px; min-height: 400px; }
+      .curated-track { grid-template-columns: 1fr; gap: 20px; }
+      .curated-item--left, .curated-item--right { display: none; }
+      .curated-item--center .curated-item-label { font-size: 18px; }
+    }
+
+    /* ========== COMPARE PRICING ========== */
+    .compare-v2 {
+      background: var(--navy);
+      color: #fff;
+      padding: 110px 0;
+    }
+    .compare-v2-header { text-align: center; margin-bottom: 60px; }
+    .compare-v2-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+    }
+    .compare-v2-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+    }
+    .compare-v2-title em {
+      font-style: normal;
+      color: inherit;
+      font-weight: inherit;
+      position: relative;
+      display: inline-block;
+    }
+    .compare-v2-title em::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -10px;
+      height: 14px;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12' preserveAspectRatio='none'><path d='M0 6 Q 6 0 12 6 T 24 6' stroke='%238B7D4A' stroke-width='4' fill='none' stroke-linecap='round'/></svg>");
+      background-repeat: repeat-x;
+      background-size: 24px 12px;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1.1s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .compare-v2-title.in-view em::after { clip-path: inset(0 0 0 0); }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .compare-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 44px 40px 44px;
+      border-radius: 4px;
+      position: relative;
+    }
+    .compare-card--featured {
+      background: #fff;
+      color: var(--navy);
+      border-color: var(--gold-light);
+    }
+    .compare-card-tag {
+      position: absolute;
+      top: -14px;
+      left: 40px;
+      background: var(--gold);
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .compare-card-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 22px;
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+    .compare-card-sub {
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 28px;
+    }
+    .compare-card--featured .compare-card-sub { color: var(--gold); }
+    .compare-card-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 36px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+    .compare-card-price-note {
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .compare-card--featured .compare-card-price-note {
+      color: var(--warm-gray);
+      border-bottom-color: var(--light-gray);
+    }
+    .compare-card-list { list-style: none; }
+    .compare-card-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 12px;
+    }
+    .compare-card--featured .compare-card-list li { color: #3a3a3a; }
+    .compare-card-list li svg { width: 14px; height: 14px; flex-shrink: 0; margin-top: 4px; }
+    .compare-card-list .c-yes { color: var(--gold-light); }
+    .compare-card--featured .compare-card-list .c-yes { color: var(--gold); }
+    .compare-card-list .c-no { color: rgba(255,255,255,0.3); }
+
+    /* ========== RECEIVE STRIP ========== */
+    .receive-v2 {
+      background: var(--cream);
+      padding: 90px 0;
+    }
+    .receive-v2-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      color: #2c3350;
+      text-align: center;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .receive-v2-title em { font-style: normal; color: inherit; font-weight: inherit; }
+    .receive-v2-sub {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 400;
+      color: #2c3350;
+      max-width: 520px;
+      margin: 0 auto 54px;
+      line-height: 1.6;
+    }
+    .receive-v2-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .receive-v2-card {
+      background: #fff;
+      padding: 36px 28px;
+      text-align: center;
+      border: 1px solid var(--light-gray);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .receive-v2-card:hover { border-color: var(--gold); box-shadow: 0 10px 30px rgba(44,51,80,0.06); }
+    .receive-v2-icon {
+      width: 54px;
+      height: 54px;
+      margin: 0 auto 18px;
+      background: var(--cream);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+    .receive-v2-icon svg { width: 24px; height: 24px; }
+    .receive-v2-card h3 {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 17px;
+      color: var(--navy);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .receive-v2-card p {
+      font-size: 13px;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* ========== DEDICATED CONSULTATION BANNER ========== */
+    .consult {
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    .consult::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(110deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.35) 100%);
+    }
+    .consult-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 70px 60px 60px;
+      min-height: 520px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr auto;
+      gap: 24px;
+      color: #fff;
+    }
+    .consult-title {
+      grid-column: 1 / 2;
+      grid-row: 1;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+    }
+    .consult-desc {
+      grid-column: 2 / 3;
+      grid-row: 2;
+      align-self: center;
+      max-width: 420px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.92);
+      font-weight: 400;
+    }
+    .consult-cta-row {
+      grid-column: 2 / 3;
+      grid-row: 3;
+      display: flex;
+      justify-content: flex-end;
+      align-items: end;
+    }
+    .consult-btn {
+      display: inline-block;
+      padding: 15px 32px;
+      background: transparent;
+      border: 1px solid #fff;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-weight: 500;
+      transition: background 0.3s, color 0.3s;
+    }
+    .consult-btn:hover { background: #fff; color: #1a1a1a; }
+    @media (max-width: 1024px) {
+      .consult-inner { padding: 56px 40px; min-height: 440px; }
+      .consult-title { font-size: 34px; }
+    }
+    @media (max-width: 768px) {
+      .consult-inner {
+        grid-template-columns: 1fr;
+        padding: 48px 24px;
+        min-height: 420px;
+      }
+      .consult-title, .consult-desc, .consult-cta-row {
+        grid-column: 1;
+      }
+      .consult-title { grid-row: 1; font-size: 28px; }
+      .consult-desc { grid-row: 2; max-width: 100%; }
+      .consult-cta-row { grid-row: 3; justify-content: flex-start; }
+    }
+
+    /* ========== SIGNATURE SERIES EDITORIAL (from v1) ========== */
+    .art-series {
+      position: relative;
+      background: #ffffff;
+      z-index: 3;
+    }
+    .art-series-intro {
+      text-align: left;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 80px 60px 60px;
+    }
+    .art-series-headline {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 42px;
+      line-height: 1.3;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      margin: 0;
+    }
+    .art-series-line {
+      display: block;
+    }
+    .art-word {
+      --fill: 0%;
+      display: inline-block;
+      background: linear-gradient(90deg,
+        #2c3350 0%,
+        #2c3350 var(--fill),
+        #a8b4ce var(--fill),
+        #a8b4ce 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+    }
+    .art-series-title {
+      position: sticky;
+      top: 83px;
+      text-align: center;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 62px;
+      font-weight: 700;
+      color: #2c3350;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      line-height: 1.2;
+      margin: 0;
+      padding: 60px 40px;
+      z-index: 0;
+      will-change: transform;
+    }
+    .art-grid-wrap {
+      position: relative;
+      z-index: 1;
+      background: transparent;
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 40px 60px 140px;
+    }
+    .art-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 200px;
+      align-items: start;
+    }
+    .art-grid-col {
+      display: flex;
+      flex-direction: column;
+      gap: 80px;
+    }
+    .art-grid-col--left { padding-top: 240px; }
+    .art-grid-col--right { padding-top: 0; }
+    .art-card {
+      position: relative;
+      cursor: pointer;
+    }
+    .art-card-img {
+      position: relative;
+      overflow: hidden;
+      background: #e4ddc9;
+      aspect-ratio: 4 / 5;
+    }
+    .art-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .art-card:hover .art-card-img img { transform: scale(1.04); }
+    .art-card-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #2c3350;
+      color: #f0e8d4;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      z-index: 2;
+    }
+    .art-card-zoom {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      background: rgba(44, 51, 80, 0.85);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 2;
+    }
+    .art-card-zoom svg { width: 15px; height: 15px; }
+    .art-card:hover .art-card-zoom { opacity: 1; }
+    .art-card-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 22px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2c3350;
+      margin-top: 22px;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+    .art-card-price {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      color: #5a5449;
+      margin-top: 8px;
+      letter-spacing: 0.1em;
+      font-weight: 400;
+    }
+    @media (max-width: 1024px) {
+      .art-series-intro { padding: 64px 32px 48px; }
+      .art-series-headline { font-size: 32px; }
+      .art-series-title { font-size: 44px; padding: 40px 32px; }
+      .art-grid { gap: 80px; }
+      .art-grid-col--left { padding-top: 160px; }
+      .art-grid-wrap { padding: 40px 40px 80px; }
+      .art-card-name { font-size: 18px; }
+    }
+    @media (max-width: 768px) {
+      .art-series-intro { padding: 48px 20px 32px; }
+      .art-series-headline { font-size: 22px; }
+      .art-series-title { font-size: 32px; letter-spacing: 0.04em; padding: 32px 20px; top: 110px; }
+      .art-grid-wrap { padding: 32px 24px 60px; }
+      .art-grid { grid-template-columns: 1fr; gap: 40px; }
+      .art-grid-col { gap: 40px; }
+      .art-grid-col--left { padding-top: 0; }
+      .art-card-name { font-size: 16px; }
+    }
+
+    /* ========== TESTIMONIALS ========== */
+    .testimonials {
+      position: relative;
+      height: 680px;
+      overflow: hidden;
+      background: #fff;
+    }
+    .testimonials-bg-top {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 26%;
+      background: #fff;
+      z-index: 0;
+    }
+    .testimonials-bg-bottom {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 74%;
+      background: #faf7f2;
+      z-index: 0;
+    }
+    .testimonials-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      height: 100%;
+    }
+    .testimonial-slides {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .testimonial-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: flex-end;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
+    }
+    .testimonial-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .testimonial-photo {
+      flex: 0 0 50%;
+      height: 100%;
+      position: relative;
+    }
+    .testimonial-clipped {
+      width: 820px;
+      height: 800px;
+      position: absolute;
+      bottom: -170px;
+      left: -150px;
+    }
+    .testimonial-quote-area {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 0 80px 80px 40px;
+    }
+    .testimonial-quote-box {
+      background: #2c3350;
+      padding: 48px 54px;
+      max-width: 620px;
+      position: relative;
+    }
+    .quote-mark {
+      font-size: 120px;
+      font-weight: 400;
+      color: #8B7D4A;
+      line-height: 0.6;
+      font-family: 'Libre Baskerville', serif;
+      position: absolute;
+      left: -68px;
+      top: 0;
+      z-index: 5;
+      background: #2c3350;
+      padding: 40px 14px 10px;
+    }
+    .quote-text {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 22px;
+      line-height: 1.6;
+      color: #f2ede3;
+      margin-bottom: 28px;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .quote-author {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: #8B7D4A;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      line-height: 1.6;
+    }
+    .testimonial-dots {
+      position: absolute;
+      right: 40px;
+      top: 55%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 10;
+    }
+    .t-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #2c3350;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+      transition: background 0.3s;
+    }
+    .t-dot.active { background: #2c3350; }
+    .t-dot:hover { background: rgba(44,51,80,0.4); }
+    @media (max-width: 1200px) {
+      .testimonial-quote-box { padding: 40px 44px; max-width: 520px; }
+      .quote-text { font-size: 19px; }
+      .quote-mark { left: -56px; font-size: 96px; }
+    }
+    @media (max-width: 900px) {
+      .testimonials { height: auto; padding: 40px 0 60px; }
+      .testimonial-slide { position: relative; flex-direction: column; display: none; }
+      .testimonial-slide.active { display: flex; }
+      .testimonial-photo { flex: none; width: 100%; height: 340px; }
+      .testimonial-clipped { width: 120%; height: 100%; bottom: -40px; left: -10%; position: absolute; }
+      .testimonial-quote-area { padding: 40px 24px 16px; }
+      .testimonial-quote-box { padding: 32px 34px; max-width: 100%; }
+      .quote-mark { left: 20px; top: -30px; font-size: 72px; padding: 16px 10px 4px; }
+      .quote-text { font-size: 16px; }
+      .testimonial-dots { right: 20px; top: auto; bottom: 20px; transform: none; flex-direction: row; }
+    }
+
+    /* ========== NEWSLETTER (identical to v1) ========== */
+    .newsletter { background: var(--cream-dark); border-top: 1px solid var(--light-gray); padding: 70px 0; text-align: center; position: relative; z-index: 2; }
+    .newsletter h2 { font-size: 42px; margin-bottom: 10px; color: #2c3350; }
+    .newsletter p { font-size: 14px; font-weight: 400; color: #2c3350; max-width: 520px; margin: 0 auto 28px; line-height: 1.6; }
+    .nl-form { display: flex; max-width: 440px; margin: 0 auto; }
+    .nl-form input { flex: 1; padding: 14px 18px; border: 1px solid var(--light-gray); background: var(--white); font-size: 12px; font-weight: 400; font-family: inherit; color: var(--charcoal); outline: none; transition: border-color 0.3s; }
+    .nl-form input::placeholder { color: #bbb; }
+    .nl-form input:focus { border-color: var(--gold); }
+    .nl-form button { padding: 14px 32px; background: #2C3350; color: #fff; font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; font-weight: 500; font-family: inherit; transition: background 0.4s; }
+    .nl-form button:hover { background: #1a1a1a; }
+
+    /* ========== FOOTER (identical to v1) ========== */
+    .footer { background: #2c3350; padding: 60px 0 100px; color: #fff; position: relative; z-index: 2; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 50px; }
+    .footer-logo { width: 250px; height: 40px; object-fit: contain; filter: brightness(0) invert(1); }
+    .footer-brand-text { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-top: 18px; max-width: 280px; }
+    .footer h5 { font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em; color: #fff; margin-bottom: 16px; font-weight: 700; }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 8px; }
+    .footer li a { font-size: 13px; color: rgba(255,255,255,0.65); transition: color 0.3s; }
+    .footer li a:hover { color: var(--gold-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.15); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 11px; color: rgba(255,255,255,0.5); }
+    .footer-social { display: flex; gap: 20px; }
+    .footer-social a { color: rgba(255,255,255,0.65); font-size: 12px; transition: color 0.3s; }
+    .footer-social a:hover { color: var(--gold-light); }
+
+    /* ========== STICKY BUY BAR (identical) ========== */
+    .sticky-buy-bar {
+      position: fixed; bottom: 0; left: 0; right: 0;
+      z-index: 999; background: #fff;
+      border-top: 1px solid var(--light-gray);
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      transform: translateY(100%);
+      transition: transform 0.4s ease;
+    }
+    .sticky-buy-bar.visible { transform: translateY(0); }
+    .sticky-buy-inner {
+      max-width: 1600px; margin: 0 auto;
+      padding: 12px 40px;
+      display: flex; align-items: center; gap: 24px;
+    }
+    .sticky-buy-product { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .sticky-buy-img { width: 48px; height: 48px; object-fit: contain; background: var(--cream); border-radius: 4px; flex-shrink: 0; }
+    .sticky-buy-info { min-width: 0; }
+    .sticky-buy-name { font-size: 13px; font-weight: 500; color: var(--charcoal); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .sticky-buy-price { font-size: 14px; font-weight: 500; color: var(--charcoal); }
+    .sticky-buy-original { font-size: 12px; color: var(--warm-gray); text-decoration: line-through; margin-left: 6px; font-weight: 400; }
+    .sticky-buy-options { display: flex; gap: 10px; flex-shrink: 0; }
+    .sticky-buy-select {
+      padding: 10px 32px 10px 14px; border: 1px solid var(--light-gray);
+      font-size: 12px; font-family: inherit; color: var(--charcoal);
+      background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b6560'/%3E%3C/svg%3E") right 12px center no-repeat;
+      appearance: none; cursor: pointer; outline: none; transition: border-color 0.3s;
+    }
+    .sticky-buy-select:hover { border-color: var(--charcoal); }
+    .sticky-buy-btn {
+      padding: 14px 40px; background: #2C3350; color: #fff;
+      font-size: 12px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.2em;
+      border: 1px solid #2C3350; flex-shrink: 0; transition: all 0.4s;
+    }
+    .sticky-buy-btn:hover { background: #fff; color: #2C3350; }
+
+    /* ========== LENGTH GUIDE MODAL ========== */
+    body.modal-open { overflow: hidden; }
+    .length-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 2000;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      overflow-y: auto;
+      padding: 40px 20px;
+    }
+    .length-modal.open { display: flex; }
+    .length-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(26,26,26,0.55);
+      backdrop-filter: blur(3px);
+    }
+    .length-modal-inner {
+      position: relative;
+      background: #fff;
+      max-width: 1080px;
+      width: 100%;
+      padding: 48px 48px 56px;
+      border-radius: 4px;
+      z-index: 1;
+      animation: lengthModalIn 0.35s cubic-bezier(0.22,0.61,0.36,1);
+    }
+    @keyframes lengthModalIn {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .length-modal-close {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      color: #1a1a1a;
+      transition: color 0.2s;
+    }
+    .length-modal-close:hover { color: var(--gold); }
+    .length-modal-close svg { width: 24px; height: 24px; }
+    .length-modal-title {
+      text-align: center;
+      font-family: 'Libre Baskerville', serif;
+      font-size: 26px;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .length-modal-body {
+      background: #e1e5ef;
+      padding: 20px 48px;
+      border-radius: 4px;
+    }
+    .length-group {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: center;
+      padding: 28px 0;
+    }
+    .length-group + .length-group { border-top: 1px solid #c9d0dd; }
+    .length-illu {
+      width: 100%;
+      aspect-ratio: 1;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .length-illu svg { width: 100%; height: 100%; }
+    .length-illu-label {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Libre Baskerville', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #8B7D4A;
+      letter-spacing: 0.12em;
+    }
+    .length-rows { width: 100%; }
+    .length-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 16px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      color: #1a1a1a;
+      border-bottom: 1px solid #c0c8d6;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .length-group:last-child .length-row:last-child { border-bottom: none; }
+    .length-row-label { font-weight: 500; }
+    .length-row-value { color: #3a3a3a; font-weight: 400; text-align: right; }
+    .length-row-sub {
+      width: 100%;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #a09a8c;
+      margin-top: -2px;
+    }
+    @media (max-width: 760px) {
+      .length-modal-inner { padding: 40px 20px 40px; }
+      .length-modal-body { padding: 12px 24px; }
+      .length-group { grid-template-columns: 1fr; gap: 20px; padding: 24px 0; }
+      .length-illu { width: 160px; margin: 0 auto; }
+      .length-modal-title { font-size: 20px; }
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1200px) {
+      .pdp2 { padding: 8px 40px 60px; gap: 48px; }
+      .pdp2-breadcrumb { padding: 20px 40px 4px; }
+      .pdp2-title { font-size: 30px; }
+      .story-band-title, .grade-v2-title, .compare-v2-title, .reviews-v2-title { font-size: 36px; }
+      .grade-v2-header, .reviews-v2-header { gap: 40px; }
+    }
+    @media (max-width: 1024px) {
+      .pdp2 { grid-template-columns: 1fr; padding: 8px 32px 48px; gap: 36px; }
+      .pdp2-gallery { position: static; }
+      .pdp2-breadcrumb { padding: 16px 32px 4px; }
+      .story-cards, .grade-v2-header, .receive-v2-grid, .reviews-v2-header, .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .grade-panel { grid-template-columns: 1fr; gap: 40px; padding: 40px 32px; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .container { padding: 0 24px; }
+      .header-inner { padding: 0 20px; }
+      .main-nav { display: none; }
+      .pdp2 { padding: 8px 20px 40px; }
+      .pdp2-breadcrumb { padding: 12px 20px 4px; font-size: 12px; }
+      .pdp2-title { font-size: 26px; }
+      .pdp2-price { font-size: 22px; }
+      .pdp2-thumb { width: 72px; }
+      .receive-v2-grid, .grade-v2-header, .reviews-v2-header { grid-template-columns: 1fr; }
+      .story-cards, .reviews-grid {
+        display: flex;
+        grid-template-columns: none;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 16px;
+        padding: 0 24px;
+        margin: 0 -24px;
+        scrollbar-width: none;
+      }
+      .story-cards::-webkit-scrollbar,
+      .reviews-grid::-webkit-scrollbar { display: none; }
+      .story-card, .review-card {
+        flex: 0 0 82%;
+        scroll-snap-align: center;
+      }
+      .story-band, .grade-v2, .compare-v2, .receive-v2, .reviews-v2 { padding: 64px 0; }
+      .story-band-title, .grade-v2-title, .compare-v2-title, .reviews-v2-title, .receive-v2-title { font-size: 28px; }
+      .grade-v2-pills { gap: 8px; }
+      .grade-pill { padding: 10px 18px; font-size: 14px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .sticky-buy-options { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== ANNOUNCEMENT BAR (identical to v1) ===== -->
+  <div class="announcement">
+    <button class="announcement-arrow announcement-arrow--prev" aria-label="Previous">&#10094;</button>
+    <div class="announcement-slider">
+      <div class="announcement-slide active">Free Shipping on All Orders (Excludes Remote &amp; Undeliverable Areas)</div>
+      <div class="announcement-slide">$15 OFF Orders Over $250</div>
+      <div class="announcement-slide">$40 OFF Orders Over $500</div>
+      <div class="announcement-slide">$90 OFF Orders Over $1000</div>
+      <div class="announcement-slide">$200 OFF Orders Over $2000</div>
+    </div>
+    <button class="announcement-arrow announcement-arrow--next" aria-label="Next">&#10095;</button>
+  </div>
+
+  <!-- ===== HEADER (identical to v1) ===== -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="logo-echovelle.png" alt="ECHOVELLE" class="logo-img">
+      </a>
+      <ul class="main-nav">
+        <li>
+          <a href="#">Necklaces</a>
+          <div class="mega-menu">
+            <div class="mega-sidebar" style="display:flex;flex-direction:column;">
+              <div>
+                <a href="#">Shop Necklaces</a>
+                <a href="#" class="mega-sidebar-plain">View All</a>
+              </div>
+              <div class="mega-sidebar-bottom">
+                <a href="#">Our Story</a>
+                <a href="#">Book a Consultation</a>
+                <a href="#">Contact Us</a>
+              </div>
+            </div>
+            <div class="mega-grid">
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IMG_0727.jpg?v=1775547658')"></div><p class="mega-item-label">Everyday Necklaces</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IMG_0694_2.jpg?v=1775547658')"></div><p class="mega-item-label">Gift Necklaces</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IMG_0705.jpg?v=1775547658')"></div><p class="mega-item-label">Statement Necklaces</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/6570-ak-w3a.webp?v=1775547656')"></div><p class="mega-item-label">Elevated Necklaces</p></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#">Earrings</a>
+          <div class="mega-menu">
+            <div class="mega-sidebar" style="display:flex;flex-direction:column;">
+              <div>
+                <a href="#">Shop Earrings</a>
+                <a href="#" class="mega-sidebar-plain">View All</a>
+              </div>
+              <div class="mega-sidebar-bottom">
+                <a href="#">Our Story</a>
+                <a href="#">Book a Consultation</a>
+                <a href="#">Contact Us</a>
+              </div>
+            </div>
+            <div class="mega-grid">
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/08a4bf12-7975-4101-ac4a-8d1aa3ea688f.png?v=1775547658')"></div><p class="mega-item-label">Stud Earrings</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/simple_Angela_side_view_small_file.jpg?v=1775547657')"></div><p class="mega-item-label">Drop Earrings</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IMG_0730_2.jpg?v=1775547658')"></div><p class="mega-item-label">Gift Earrings</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/DSC01434-4.jpg?v=1775547657')"></div><p class="mega-item-label">Statement Earrings</p></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#">Gifts</a>
+          <div class="mega-menu">
+            <div class="mega-sidebar" style="display:flex;flex-direction:column;">
+              <div>
+                <a href="#">Shop Gifts</a>
+                <a href="#" class="mega-sidebar-plain">Gift Cards</a>
+              </div>
+              <div class="mega-sidebar-bottom">
+                <a href="#">Our Story</a>
+                <a href="#">Book a Consultation</a>
+                <a href="#">Contact Us</a>
+              </div>
+            </div>
+            <div class="mega-grid">
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/about_600x_3dbaadcc-51b8-440c-b2ed-29ef6c33f41e.png?v=1775547658')"></div><p class="mega-item-label">Gifts for Her</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/0508ins_800x_aec719ef-ec66-4e4c-8682-f4b81b2bc9fa.png?v=1775547659')"></div><p class="mega-item-label">Birthday Gifts</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/Untitled_design.jpg?v=1775547656')"></div><p class="mega-item-label">Anniversary Gifts</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/simple_Angela_side_view_small_file.jpg?v=1775547657')"></div><p class="mega-item-label">Mother&rsquo;s Day Gifts</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/1_1200x_14ae4146-6138-46a5-9c80-f4e2a54aa558.png?v=1775547661')"></div><p class="mega-item-label">Gift Sets</p></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#">Collections</a>
+          <div class="mega-menu">
+            <div class="mega-sidebar" style="display:flex;flex-direction:column;">
+              <div>
+                <a href="#">Editorial Edits</a>
+                <a href="#" class="mega-sidebar-plain">Shop All</a>
+              </div>
+              <div class="mega-sidebar-bottom">
+                <a href="#">Our Story</a>
+                <a href="#">Book a Consultation</a>
+                <a href="#">Contact Us</a>
+              </div>
+            </div>
+            <div class="mega-grid">
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IMG_0705.jpg?v=1775547658')"></div><p class="mega-item-label">Design Edit</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/Untitled_design.jpg?v=1775547656')"></div><p class="mega-item-label">Gift Edit</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/6570-ak-w3a.webp?v=1775547656')"></div><p class="mega-item-label">Elevated Edit</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IMG_0684.jpg?v=1775547658')"></div><p class="mega-item-label">New Arrivals</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IMG_0694_2.jpg?v=1775547658')"></div><p class="mega-item-label">Best Sellers</p></div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="#">About</a>
+          <div class="mega-menu">
+            <div class="mega-sidebar" style="display:flex;flex-direction:column;">
+              <div>
+                <a href="#">The House of Echovelle</a>
+                <a href="#" class="mega-sidebar-plain">Customer Care</a>
+              </div>
+              <div class="mega-sidebar-bottom">
+                <a href="#">Book a Consultation</a>
+                <a href="#">Contact Us</a>
+              </div>
+            </div>
+            <div class="mega-grid">
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/about_600x_3dbaadcc-51b8-440c-b2ed-29ef6c33f41e.png?v=1775547658')"></div><p class="mega-item-label">Our Story</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/DSC01434-4.jpg?v=1775547657')"></div><p class="mega-item-label">Pearl Care</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/bg-image-rings.png?v=1775547658')"></div><p class="mega-item-label">Warranty</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/1_1200x_14ae4146-6138-46a5-9c80-f4e2a54aa558.png?v=1775547661')"></div><p class="mega-item-label">FAQ</p></div>
+              <div class="mega-item"><div class="mega-item-img" style="background-image:url('https://cdn.shopify.com/s/files/1/0577/1939/0270/files/Untitled_design.jpg?v=1775547656')"></div><p class="mega-item-label">Contact Us</p></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="nav-utils">
+        <a href="#" class="nav-icon" aria-label="Search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></a>
+        <a href="#" class="nav-icon" aria-label="Wishlist"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></a>
+        <a href="#" class="nav-icon" aria-label="Account"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M20 21a8 8 0 1 0-16 0"/></svg></a>
+        <a href="#" class="nav-icon" aria-label="Bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BREADCRUMB ===== -->
+  <nav class="pdp2-breadcrumb">
+    <a href="index.html">← Shop All</a>
+    <span class="sep">/</span>
+    <span class="current">Akoya Pearl Strand Necklace</span>
+  </nav>
+
+  <!-- ===== PDP V2 (AG1-inspired layout) ===== -->
+  <section class="pdp2">
+
+    <!-- LEFT: Gallery -->
+    <div class="pdp2-gallery">
+      <div class="pdp2-main">
+        <div class="pdp2-slide cover active"><img src="产品页主图/1.webp" alt="Akoya Pearl Strand Necklace"></div>
+        <div class="pdp2-slide cover"><img src="产品页主图/2.webp" alt="Akoya Pearl Strand Necklace — on model"></div>
+        <div class="pdp2-slide cover"><img src="产品页主图/3.webp" alt="Akoya Pearl Strand Necklace — detail"></div>
+        <button class="pdp2-arrow pdp2-arrow--prev" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="pdp2-arrow pdp2-arrow--next" aria-label="Next image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="pdp2-thumbs">
+        <div class="pdp2-thumb active" data-idx="0"><img src="产品页主图/1.webp" alt=""></div>
+        <div class="pdp2-thumb" data-idx="1"><img src="产品页主图/2.webp" alt=""></div>
+        <div class="pdp2-thumb" data-idx="2"><img src="产品页主图/3.webp" alt=""></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Info panel -->
+    <div class="pdp2-info">
+      <p class="pdp2-category">Necklace · Solaire Collection</p>
+      <h1 class="pdp2-title">Akoya Pearl Strand Necklace</h1>
+
+      <div class="pdp2-rating">
+        <span class="pdp2-rating-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span class="pdp2-rating-text">5.0</span>
+        <a href="#" class="pdp2-rating-link">12 reviews</a>
+      </div>
+
+      <div class="pdp2-price-row">
+        <span class="pdp2-price">$385.00</span>
+        <span class="pdp2-price-original">$520.00</span>
+        <span class="pdp2-price-save">Save $135</span>
+      </div>
+      <div class="pdp2-pricing-body">
+        <p>Directly sourced from certified Japanese farms — so you pay for the pearl itself.</p>
+        <ul>
+          <li><strong>Farmer-to-client pricing</strong></li>
+          <li><strong>Transparent AAA+ grading</strong></li>
+          <li><strong>Certificate of Authenticity</strong> included</li>
+          <li><strong>Full traceability</strong></li>
+          <li><strong>Hand-knotted over 6 hours</strong> — built to be inherited for generations</li>
+        </ul>
+      </div>
+
+      <hr class="pdp2-divider">
+
+      <!-- Feature strip: icon + label × 3 -->
+      <div class="pdp2-feature-strip">
+        <div class="pdp2-feature">
+          <svg class="pdp2-feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 14h22v20H4z"/>
+            <path d="M26 20h10l5 6v8H26"/>
+            <circle cx="12" cy="36" r="3.5"/>
+            <circle cx="34" cy="36" r="3.5"/>
+          </svg>
+          <span class="pdp2-feature-label">Free Shipping<br>&amp; Returns</span>
+        </div>
+        <div class="pdp2-feature">
+          <svg class="pdp2-feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 4l4.5 3.2 5.5-.8 2.3 5 5 2.3-.8 5.5L43.7 24l-3.2 4.5.8 5.5-5 2.3-2.3 5-5.5-.8L24 43.7l-4.5-3.2-5.5.8-2.3-5-5-2.3.8-5.5L4.3 24l3.2-4.5-.8-5.5 5-2.3 2.3-5 5.5.8z"/>
+            <circle cx="19.5" cy="19.5" r="2.2"/>
+            <circle cx="28.5" cy="28.5" r="2.2"/>
+            <path d="M30 18 18 30"/>
+          </svg>
+          <span class="pdp2-feature-label">Up to 80% Below<br>Retail</span>
+        </div>
+        <div class="pdp2-feature">
+          <svg class="pdp2-feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="26" cy="30" r="12"/>
+            <path d="M22 26c1.5-1.8 4-2.6 6-2.6"/>
+            <path d="M12 8v8M8 12h8"/>
+            <path d="M38 14v5M35.5 16.5h5"/>
+            <path d="M14 24v4M12 26h4"/>
+          </svg>
+          <span class="pdp2-feature-label">Top 1% of<br>Harvest</span>
+        </div>
+      </div>
+
+      <!-- Color -->
+      <div class="pdp2-option-block">
+        <div class="pdp2-opt-label">
+          <span>Color: <span class="pdp2-opt-value" id="pdp2ColorName">White Rosé</span></span>
+        </div>
+        <div class="pdp2-colors">
+          <div class="pdp2-color active" data-name="White Rosé" title="White Rosé" style="background: radial-gradient(ellipse at 30% 28%, #fff, #f0ede8, #e0ddd5);"></div>
+          <div class="pdp2-color" data-name="Pink" title="Pink" style="background: radial-gradient(ellipse at 30% 28%, #f5e0d8, #e8c4b8, #d4a898);"></div>
+          <div class="pdp2-color" data-name="Golden" title="Golden" style="background: radial-gradient(ellipse at 30% 28%, #f5ecd0, #ddc98a, #c5a860);"></div>
+          <div class="pdp2-color" data-name="Tahitian" title="Tahitian" style="background: radial-gradient(ellipse at 30% 28%, #6a6a6a, #3a3a3a, #1a1a1a);"></div>
+        </div>
+      </div>
+
+      <!-- Length -->
+      <div class="pdp2-option-block">
+        <div class="pdp2-opt-label">
+          <span>Length: <span class="pdp2-opt-value" id="pdp2LenName">18"</span></span>
+          <a href="#" class="pdp2-opt-size-guide">Length Guide</a>
+        </div>
+        <div class="pdp2-lengths">
+          <div class="pdp2-length" data-len='16"'>16"</div>
+          <div class="pdp2-length active" data-len='18"'>18"</div>
+          <div class="pdp2-length" data-len='20"'>20"</div>
+          <div class="pdp2-length" data-len='22"'>22"</div>
+          <div class="pdp2-length" data-len='24"'>24"</div>
+        </div>
+      </div>
+
+      <!-- Payment Buttons -->
+      <div class="pdp2-buttons">
+        <button class="pdp2-btn-cart">Add to Cart</button>
+        <button class="pdp2-btn-buy">Buy Now</button>
+        <button class="pdp2-btn-paypal">Pay with <strong>Pay</strong><strong style="color:#009cde;">Pal</strong></button>
+        <a href="#" class="pdp2-more-payments">More payment options</a>
+      </div>
+
+      <!-- Accordions (AG1 style) -->
+      <div class="pdp2-accs">
+        <div class="pdp2-acc">
+          <div class="pdp2-acc-hd">What is the Akoya Strand? <span class="pdp2-acc-icon">+</span></div>
+          <div class="pdp2-acc-body">
+            <div class="pdp2-acc-content">
+              <p>A timeless strand of 7.0–7.5mm AAA+ grade Akoya pearls, hand-selected from Japan's Mie Prefecture and hand-knotted on natural silk thread. Finished with a solid 18K white gold clasp — never plated, never hollow.</p>
+              <p>This is the necklace that anchors a jewelry collection: the piece worn at every milestone, passed between generations.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pdp2-acc">
+          <div class="pdp2-acc-hd">What's In The Box <span class="pdp2-acc-icon">+</span></div>
+          <div class="pdp2-acc-body">
+            <div class="pdp2-acc-content">
+              <p>Every Echovelle piece arrives ready to gift — or to treasure.</p>
+              <ul>
+                <li><strong>Certificate of Authenticity</strong> — signed and numbered; guarantees grade, origin, and our lifetime promise.</li>
+                <li><strong>Velvet-Lined Gift Box</strong> — soft interior, magnetic closure, FSC-certified outer shell.</li>
+                <li><strong>Care Card</strong> — simple rituals for luster that lasts, straight from our master stringer.</li>
+                <li><strong>Handwritten Note</strong> — add a message at checkout; we'll write it in ink, on cotton paper, by hand.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pdp2-acc">
+          <div class="pdp2-acc-hd">Jewelry Details <span class="pdp2-acc-icon">+</span></div>
+          <div class="pdp2-acc-body">
+            <div class="pdp2-acc-content">
+              <ul>
+                <li><strong>Pearl Type</strong> — Akoya (saltwater), cultured in Mie Prefecture, Japan</li>
+                <li><strong>Pearl Size</strong> — 7.0 – 7.5 mm, hand-matched for uniformity</li>
+                <li><strong>Shape &amp; Surface</strong> — Round, AAA+ grade, virtually flawless</li>
+                <li><strong>Luster &amp; Nacre</strong> — Mirror-bright luster, very thick nacre (0.4 mm+)</li>
+                <li><strong>Clasp</strong> — Solid 18K white gold fishhook with safety catch</li>
+                <li><strong>Thread</strong> — Natural silk, hand-knotted between every pearl</li>
+                <li><strong>Finish</strong> — Rhodium-plated accents, hypoallergenic</li>
+                <li><strong>Strand Length</strong> — 16" / 18" / 20" / 22" / 24" options</li>
+                <li><strong>Total Weight</strong> — Approx. 18 g (18" strand)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="pdp2-acc">
+          <div class="pdp2-acc-hd">How to wear <span class="pdp2-acc-icon">+</span></div>
+          <div class="pdp2-acc-body">
+            <div class="pdp2-acc-content">
+              <p>Put on last — after perfume, hairspray, and lotion have fully absorbed. Fasten the clasp at the nape, not in front, to prevent twisting. Layer confidently with an 18" (princess length) for a silk blouse, or pair solo with a crisp collar.</p>
+            </div>
+          </div>
+        </div>
+        <div class="pdp2-acc">
+          <div class="pdp2-acc-hd">Care instructions <span class="pdp2-acc-icon">+</span></div>
+          <div class="pdp2-acc-body">
+            <div class="pdp2-acc-content">
+              <ul>
+                <li>Wipe with a soft, dry cloth after each wear</li>
+                <li>Store flat in a soft pouch, separate from other jewelry</li>
+                <li>Avoid perfume, chlorine, and ultrasonic cleaners</li>
+                <li>Restring every 3–5 years for daily-wear pieces — complimentary for Echovelle clients</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== EDITORIAL STORY BAND ===== -->
+  <section class="story-band">
+    <div class="container">
+      <div class="story-band-heading">
+        <p class="story-band-eyebrow">The Echovelle Craft</p>
+        <h2 class="story-band-title">A Standard We <em>Don't Compromise</em></h2>
+        <p class="story-band-sub">From the quiet bays of Japan to the velvet-lined box on your doorstep — three decisions that define every piece we make.</p>
+      </div>
+      <div class="story-cards">
+        <div class="story-card">
+          <div class="story-card-img"><img src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/Guide_1.webp?v=1775816220" alt="AAA+ Pearls"></div>
+          <div class="story-card-body">
+            <span class="story-card-num">No. 01 — The Pearl</span>
+            <h3 class="story-card-title">Top 1% of Every Harvest</h3>
+            <p class="story-card-desc">We reject 99 pearls to keep one. Mirror-bright luster, perfectly round shape, virtually flawless surface — our AAA+ standard leaves nothing to chance.</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-card-img"><img src="模特图/Necklaces2模特.webp" alt="Gold Craftsmanship"></div>
+          <div class="story-card-body">
+            <span class="story-card-num">No. 02 — The Setting</span>
+            <h3 class="story-card-title">Solid 18K Gold, Hand-Knotted Silk</h3>
+            <p class="story-card-desc">Every clasp is solid 18K gold, never plated. Every pearl is individually hand-knotted on silk using the traditional Japanese method — so a broken strand never means lost pearls.</p>
+          </div>
+        </div>
+        <div class="story-card">
+          <div class="story-card-img"><img src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/echovelle_3.webp?v=1775816221" alt="Ethical sourcing"></div>
+          <div class="story-card-body">
+            <span class="story-card-num">No. 03 — The Source</span>
+            <h3 class="story-card-title">Traceable &amp; Ethically Harvested</h3>
+            <p class="story-card-desc">Every pearl is traceable to a certified farm. A portion of every purchase funds clean-ocean initiatives — because taking from the sea means giving back to it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CURATED CAROUSEL ===== -->
+  <section class="curated">
+    <div class="curated-heading">
+      <p class="curated-eyebrow">Complete The Set</p>
+      <h2 class="curated-heading-title">Styled With The Strand</h2>
+      <p class="curated-heading-sub">Hand-picked to layer, stack, or stand beside your Akoya Pearl Strand — each piece crafted in the same quiet Echovelle hand.</p>
+    </div>
+    <div class="curated-stage">
+      <button class="curated-arrow" id="curatedPrev" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </button>
+      <div class="curated-track" id="curatedTrack">
+        <div class="curated-item" data-slot="0"></div>
+        <div class="curated-item" data-slot="1"></div>
+        <div class="curated-item" data-slot="2"></div>
+        <div class="curated-item" data-slot="3"></div>
+        <div class="curated-item" data-slot="4"></div>
+      </div>
+      <button class="curated-arrow" id="curatedNext" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== GRADING SELECTOR ===== -->
+  <section class="grade-v2">
+    <div class="container">
+      <div class="grade-v2-header">
+        <p class="grade-v2-eyebrow">Our Grading System</p>
+        <h2 class="grade-v2-title">How We <em>Grade</em> Each Pearl</h2>
+        <p class="grade-v2-desc">Every pearl passes through our four-tier grading lens before it earns a place in an Echovelle piece. Choose a grade to see what defines it.</p>
+      </div>
+
+      <div class="grade-v2-pills" id="gradePills">
+        <button class="grade-pill active" data-grade="0">AAAA</button>
+        <button class="grade-pill" data-grade="1">AAA</button>
+        <button class="grade-pill" data-grade="2">
+          AA+
+          <span class="grade-pill-tag">
+            <span class="grade-pill-tag-diamond"></span>
+            <span class="grade-pill-tag-label">This Product</span>
+          </span>
+        </button>
+        <button class="grade-pill" data-grade="3">AA</button>
+      </div>
+
+      <div class="grade-panel active" data-panel="0">
+        <div class="grade-panel-img"><img src="模特图/Necklaces1模特.webp" alt="AAAA grade piece"></div>
+        <div>
+          <div class="grade-panel-head">
+            <div class="grade-panel-head-text">
+              <div class="grade-panel-label">AAAA</div>
+              <div class="grade-panel-rarity">Extremely Rare — Top 1%</div>
+            </div>
+            <img class="grade-panel-pearls" src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/20260105142906_3621_30.webp?v=1776101491" alt="AAAA pearls">
+          </div>
+          <div class="grade-panel-specs">
+            <div><p class="grade-panel-spec-key">Luster</p><p class="grade-panel-spec-val">Mirror-bright</p></div>
+            <div><p class="grade-panel-spec-key">Shape</p><p class="grade-panel-spec-val">Perfectly round</p></div>
+            <div><p class="grade-panel-spec-key">Surface</p><p class="grade-panel-spec-val">Virtually flawless</p></div>
+            <div><p class="grade-panel-spec-key">Flaws</p><p class="grade-panel-spec-val">0–1 (under magnification)</p></div>
+          </div>
+          <p class="grade-panel-note">The pinnacle of Akoya grading. Reserved for heirloom and couture pieces — a reflection so sharp you can read text in it.</p>
+          <a href="#" class="grade-shop-btn">Discover AAAA Pieces</a>
+        </div>
+      </div>
+      <div class="grade-panel" data-panel="1">
+        <div class="grade-panel-img"><img src="模特图/Necklaces2模特.webp" alt="AAA grade piece"></div>
+        <div>
+          <div class="grade-panel-head">
+            <div class="grade-panel-head-text">
+              <div class="grade-panel-label">AAA</div>
+              <div class="grade-panel-rarity">Rare — Our Most-Loved Grade</div>
+            </div>
+            <img class="grade-panel-pearls" src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/20260105142906_3620_30.webp?v=1776101491" alt="AAA pearls">
+          </div>
+          <div class="grade-panel-specs">
+            <div><p class="grade-panel-spec-key">Luster</p><p class="grade-panel-spec-val">Highly bright</p></div>
+            <div><p class="grade-panel-spec-key">Shape</p><p class="grade-panel-spec-val">Round / near-round</p></div>
+            <div><p class="grade-panel-spec-key">Surface</p><p class="grade-panel-spec-val">Minor marks</p></div>
+            <div><p class="grade-panel-spec-key">Flaws</p><p class="grade-panel-spec-val">1–2 small</p></div>
+          </div>
+          <p class="grade-panel-note">The sweet spot — brilliant luster, beautiful shape, remarkable value. This is what most Echovelle strands are made of.</p>
+          <a href="#" class="grade-shop-btn">Discover AAA Pieces</a>
+        </div>
+      </div>
+      <div class="grade-panel" data-panel="2">
+        <div class="grade-panel-img"><img src="模特图/Necklaces3模特.webp" alt="AA+ grade piece"></div>
+        <div>
+          <div class="grade-panel-head">
+            <div class="grade-panel-head-text">
+              <div class="grade-panel-label">AA+</div>
+              <div class="grade-panel-rarity">Uncommon — Elevated Everyday</div>
+            </div>
+            <img class="grade-panel-pearls" src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/20260105142905_3618_30.webp?v=1776101491" alt="AA+ pearls">
+          </div>
+          <div class="grade-panel-specs">
+            <div><p class="grade-panel-spec-key">Luster</p><p class="grade-panel-spec-val">Highly bright / gentle</p></div>
+            <div><p class="grade-panel-spec-key">Shape</p><p class="grade-panel-spec-val">Round / off-round</p></div>
+            <div><p class="grade-panel-spec-key">Surface</p><p class="grade-panel-spec-val">Minor marks</p></div>
+            <div><p class="grade-panel-spec-key">Flaws</p><p class="grade-panel-spec-val">1–2 small</p></div>
+          </div>
+          <p class="grade-panel-note">A graceful step above commercial quality — the grade where pearl character and accessibility meet.</p>
+          <a href="#" class="grade-shop-btn">Discover AA+ Pieces</a>
+        </div>
+      </div>
+      <div class="grade-panel" data-panel="3">
+        <div class="grade-panel-img"><img src="产品页主图/2.webp" alt="AA grade piece"></div>
+        <div>
+          <div class="grade-panel-head">
+            <div class="grade-panel-head-text">
+              <div class="grade-panel-label">AA</div>
+              <div class="grade-panel-rarity">Classic Quality</div>
+            </div>
+            <img class="grade-panel-pearls" src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/20260105142906_3619_30.webp?v=1776101491" alt="AA pearls">
+          </div>
+          <div class="grade-panel-specs">
+            <div><p class="grade-panel-spec-key">Luster</p><p class="grade-panel-spec-val">Gentle</p></div>
+            <div><p class="grade-panel-spec-key">Shape</p><p class="grade-panel-spec-val">Off-round</p></div>
+            <div><p class="grade-panel-spec-key">Surface</p><p class="grade-panel-spec-val">Medium blemishes</p></div>
+            <div><p class="grade-panel-spec-key">Flaws</p><p class="grade-panel-spec-val">2+ pronounced</p></div>
+          </div>
+          <p class="grade-panel-note">Classic Akoya character with visible personality — perfect for playful, everyday-styled pieces.</p>
+          <a href="#" class="grade-shop-btn">Discover AA Pieces</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HERO STORY CAROUSEL ===== -->
+  <section class="hero-story">
+    <div class="hero-story-heading">
+      <p class="hero-story-eyebrow">The Echovelle Story</p>
+      <h2 class="hero-story-heading-title">From The Sea To Your Collection</h2>
+      <p class="hero-story-heading-sub">The quiet journey behind every Echovelle strand — patience, precision, and a standard that refuses to compromise.</p>
+    </div>
+    <div class="hero-story-stage">
+      <div class="hero-story-peek" id="heroPeek">
+        <img class="active" src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IAM_jewelery-banner_home-desk.webp?v=1776246235" alt="">
+        <img src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/hero_dec.webp?v=1776246235" alt="">
+        <img src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/20260415165247_439_5.png?v=1776245410" alt="">
+      </div>
+      <div class="hero-story-main" id="heroMain">
+        <img class="active" src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/20260415165247_439_5.png?v=1776245410" alt="Pearl heritage">
+        <img src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/IAM_jewelery-banner_home-desk.webp?v=1776246235" alt="AAA+ grading">
+        <img src="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/hero_dec.webp?v=1776246235" alt="An heirloom">
+      </div>
+      <div class="hero-story-panel">
+        <div class="hero-story-nav">
+          <button class="hero-story-arrow" id="heroPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="hero-story-arrow" id="heroNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div class="hero-story-text" id="heroText">
+          <h2 class="hero-story-title" id="heroTitle">Born Of The Sea, Refined By Hand</h2>
+          <p class="hero-story-body" id="heroBody">Each pearl begins as a tiny grain, patiently nurtured for three to four years inside living oysters in Japan's cold, mineral-rich waters of Mie Prefecture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SIGNATURE SERIES EDITORIAL ===== -->
+  <section class="art-series">
+    <div class="art-series-intro">
+      <h2 class="art-series-headline">
+        <span class="art-series-line">Where Heirloom Meets Heart — A Quiet Celebration Of Timeless Pearls, Hand-Selected From Japan's Finest Waters, Set In Solid Gold, Knotted On Silk, Made To Be Worn Often And Treasured For Generations Hence.</span>
+      </h2>
+    </div>
+  </section>
+
+  <!-- ===== TESTIMONIALS ===== -->
+  <section class="testimonials">
+    <div class="testimonials-bg-top"></div>
+    <div class="testimonials-bg-bottom"></div>
+
+    <div class="testimonials-container">
+      <div class="testimonial-dots">
+        <button class="t-dot active" data-tslide="0" aria-label="Slide 1"></button>
+        <button class="t-dot" data-tslide="1" aria-label="Slide 2"></button>
+        <button class="t-dot" data-tslide="2" aria-label="Slide 3"></button>
+      </div>
+
+      <div class="testimonial-slides">
+        <!-- Slide 1 -->
+        <div class="testimonial-slide active" data-tindex="0">
+          <div class="testimonial-photo">
+            <svg class="testimonial-clipped" viewBox="0 0 661 615" xmlns="http://www.w3.org/2000/svg">
+              <defs><clipPath id="tclip0"><path d="M79.371 89.8829C52.0481 124.317 0 197.883 0 197.883L72.5 257.883L32.5 398.383L101 422.883L62 462.383L132.5 520.383L185.5 464.883L284.5 544.383L390 448.883C390 448.883 377.967 542.017 437.5 571.383C526.5 615.283 661 364.883 661 364.883L590.5 318.383C590.5 318.383 620.282 264.011 590.5 234.883C560.718 205.754 516.5 231.883 516.5 231.883L604.5 87.3826L528.5 28.3826L464.5 87.3826C464.5 87.3826 489 21.7506 415 2.88257C341 -15.9854 222.5 94.8825 222.5 94.8825C222.5 94.8825 231.5 50.6288 231.5 43.3826L147 0C147 0 102.485 60.7527 79.371 89.8829Z"/></clipPath></defs>
+              <image clip-path="url(#tclip0)" x="0" y="0" width="661" height="615" href="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/566489681_18084154337304840_6392517460673105732_n.jpg?v=1776261960" preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+          </div>
+          <div class="testimonial-quote-area">
+            <div class="testimonial-quote-box">
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">The luster catches me every time I put it on. Every detail — the knotting, the weight of the clasp, the box it arrived in — makes this feel like a piece I was trusted with, not just sold.</p>
+              <p class="quote-author">Elena C. — Returning client since 2023</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="testimonial-slide" data-tindex="1">
+          <div class="testimonial-photo">
+            <svg class="testimonial-clipped" viewBox="0 0 661 615" xmlns="http://www.w3.org/2000/svg">
+              <defs><clipPath id="tclip1"><path d="M79.371 89.8829C52.0481 124.317 0 197.883 0 197.883L72.5 257.883L32.5 398.383L101 422.883L62 462.383L132.5 520.383L185.5 464.883L284.5 544.383L390 448.883C390 448.883 377.967 542.017 437.5 571.383C526.5 615.283 661 364.883 661 364.883L590.5 318.383C590.5 318.383 620.282 264.011 590.5 234.883C560.718 205.754 516.5 231.883 516.5 231.883L604.5 87.3826L528.5 28.3826L464.5 87.3826C464.5 87.3826 489 21.7506 415 2.88257C341 -15.9854 222.5 94.8825 222.5 94.8825C222.5 94.8825 231.5 50.6288 231.5 43.3826L147 0C147 0 102.485 60.7527 79.371 89.8829Z"/></clipPath></defs>
+              <image clip-path="url(#tclip1)" x="0" y="0" width="661" height="615" href="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/pop2_1730833562872_1.jpg?v=1776261960" preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+          </div>
+          <div class="testimonial-quote-area">
+            <div class="testimonial-quote-box">
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">I bought the strand for my daughter's graduation. She opened it, paused, and put it on before we had even finished talking. A keepsake in the truest sense — and quietly passed between us now.</p>
+              <p class="quote-author">Margaret K. — Mother &amp; Collector</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="testimonial-slide" data-tindex="2">
+          <div class="testimonial-photo">
+            <svg class="testimonial-clipped" viewBox="0 0 661 615" xmlns="http://www.w3.org/2000/svg">
+              <defs><clipPath id="tclip2"><path d="M79.371 89.8829C52.0481 124.317 0 197.883 0 197.883L72.5 257.883L32.5 398.383L101 422.883L62 462.383L132.5 520.383L185.5 464.883L284.5 544.383L390 448.883C390 448.883 377.967 542.017 437.5 571.383C526.5 615.283 661 364.883 661 364.883L590.5 318.383C590.5 318.383 620.282 264.011 590.5 234.883C560.718 205.754 516.5 231.883 516.5 231.883L604.5 87.3826L528.5 28.3826L464.5 87.3826C464.5 87.3826 489 21.7506 415 2.88257C341 -15.9854 222.5 94.8825 222.5 94.8825C222.5 94.8825 231.5 50.6288 231.5 43.3826L147 0C147 0 102.485 60.7527 79.371 89.8829Z"/></clipPath></defs>
+              <image clip-path="url(#tclip2)" x="0" y="0" width="661" height="615" href="https://cdn.shopify.com/s/files/1/0577/1939/0270/files/10ef17b6ec73b47889c8df1ce9729068c62af653.jpg?v=1776261960" preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+          </div>
+          <div class="testimonial-quote-area">
+            <div class="testimonial-quote-box">
+              <div class="quote-mark">&ldquo;</div>
+              <p class="quote-text">From the hand-signed certificate to the consultation call before ordering, every touchpoint feels considered. Less like a purchase, more like being welcomed into a quiet world. I'll be back.</p>
+              <p class="quote-author">Julian T. — Repeat Client</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER (identical to v1) ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <img src="logo-echovelle.png" alt="ECHOVELLE" class="footer-logo">
+          <p class="footer-brand-text">True Beauty, Never Forced. Handpicked pearls, ethically sourced from the world's finest waters, crafted into timeless jewelry.</p>
+        </div>
+        <div><h5>Shop</h5><ul><li><a href="#">New Arrivals</a></li><li><a href="#">Necklaces</a></li><li><a href="#">Earrings</a></li><li><a href="#">Rings</a></li><li><a href="#">Bracelets</a></li><li><a href="#">Gift Sets</a></li></ul></div>
+        <div><h5>Our Story</h5><ul><li><a href="#">About Echovelle</a></li><li><a href="#">Sustainability</a></li><li><a href="#">Pearl Guide</a></li><li><a href="#">Our Symbolism</a></li><li><a href="#">Journal</a></li><li><a href="#">Press</a></li></ul></div>
+        <div><h5>Customer Service</h5><ul><li><a href="#">Contact Us</a></li><li><a href="#">FAQ</a></li><li><a href="#">Shipping</a></li><li><a href="#">Returns &amp; Repairs</a></li><li><a href="#">Gift Cards</a></li></ul></div>
+        <div><h5>Policies</h5><ul><li><a href="#">Privacy Policy</a></li><li><a href="#">Terms &amp; Conditions</a></li><li><a href="#">Accessibility</a></li><li><a href="#">CA Privacy Rights</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Echovelle. All rights reserved.</p>
+        <div class="footer-social"><a href="#">Instagram</a><a href="#">Pinterest</a><a href="#">Facebook</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== LENGTH GUIDE MODAL ===== -->
+  <div class="length-modal" id="lengthModal" aria-hidden="true" role="dialog" aria-labelledby="lengthModalTitle">
+    <div class="length-modal-backdrop" data-length-close></div>
+    <div class="length-modal-inner">
+      <button class="length-modal-close" data-length-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h2 class="length-modal-title" id="lengthModalTitle">What's My Length?</h2>
+      <div class="length-modal-body">
+
+        <!-- 16" Choker -->
+        <div class="length-group">
+          <div class="length-illu">
+            <svg viewBox="0 0 200 200" fill="none" stroke="#1a1a1a" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M100 14 C 84 14, 74 28, 74 44 C 74 60, 84 72, 100 72 C 116 72, 126 60, 126 44 C 126 28, 116 14, 100 14z"/>
+              <path d="M90 72 L 90 96 L 110 96 L 110 72"/>
+              <path d="M20 195 C 20 155, 58 102, 100 102 C 142 102, 180 155, 180 195"/>
+              <ellipse cx="100" cy="100" rx="38" ry="5" stroke="#8B7D4A" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+            </svg>
+            <span class="length-illu-label">16"</span>
+          </div>
+          <div class="length-rows">
+            <div class="length-row"><span class="length-row-label">Style Name</span><span class="length-row-value">Choker</span></div>
+            <div class="length-row"><span class="length-row-label">Where It Sits</span><span class="length-row-value">Snug at the base of the throat</span></div>
+            <div class="length-row">
+              <span class="length-row-label">Best Paired With</span><span class="length-row-value">Off-shoulder tops, boatnecks, strapless dresses</span>
+              <span class="length-row-sub">A statement piece — wear solo</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 18" Princess -->
+        <div class="length-group">
+          <div class="length-illu">
+            <svg viewBox="0 0 200 200" fill="none" stroke="#1a1a1a" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M100 14 C 84 14, 74 28, 74 44 C 74 60, 84 72, 100 72 C 116 72, 126 60, 126 44 C 126 28, 116 14, 100 14z"/>
+              <path d="M90 72 L 90 96 L 110 96 L 110 72"/>
+              <path d="M20 195 C 20 155, 58 102, 100 102 C 142 102, 180 155, 180 195"/>
+              <ellipse cx="100" cy="116" rx="42" ry="6" stroke="#8B7D4A" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+            </svg>
+            <span class="length-illu-label">18"</span>
+          </div>
+          <div class="length-rows">
+            <div class="length-row"><span class="length-row-label">Style Name</span><span class="length-row-value">Princess</span></div>
+            <div class="length-row"><span class="length-row-label">Where It Sits</span><span class="length-row-value">Rests at the collarbone</span></div>
+            <div class="length-row">
+              <span class="length-row-label">Best Paired With</span><span class="length-row-value">Blouses, crew necks, tailored dresses</span>
+              <span class="length-row-sub">Most Popular — Echovelle's signature length</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 20" Long Princess -->
+        <div class="length-group">
+          <div class="length-illu">
+            <svg viewBox="0 0 200 200" fill="none" stroke="#1a1a1a" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M100 14 C 84 14, 74 28, 74 44 C 74 60, 84 72, 100 72 C 116 72, 126 60, 126 44 C 126 28, 116 14, 100 14z"/>
+              <path d="M90 72 L 90 96 L 110 96 L 110 72"/>
+              <path d="M20 195 C 20 155, 58 102, 100 102 C 142 102, 180 155, 180 195"/>
+              <ellipse cx="100" cy="130" rx="46" ry="6.5" stroke="#8B7D4A" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+            </svg>
+            <span class="length-illu-label">20"</span>
+          </div>
+          <div class="length-rows">
+            <div class="length-row"><span class="length-row-label">Style Name</span><span class="length-row-value">Long Princess</span></div>
+            <div class="length-row"><span class="length-row-label">Where It Sits</span><span class="length-row-value">Just below the collarbone</span></div>
+            <div class="length-row">
+              <span class="length-row-label">Best Paired With</span><span class="length-row-value">V-necks, scoop necks, button-downs</span>
+              <span class="length-row-sub">Effortless everyday elegance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 22" Matinee -->
+        <div class="length-group">
+          <div class="length-illu">
+            <svg viewBox="0 0 200 200" fill="none" stroke="#1a1a1a" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M100 14 C 84 14, 74 28, 74 44 C 74 60, 84 72, 100 72 C 116 72, 126 60, 126 44 C 126 28, 116 14, 100 14z"/>
+              <path d="M90 72 L 90 96 L 110 96 L 110 72"/>
+              <path d="M20 195 C 20 155, 58 102, 100 102 C 142 102, 180 155, 180 195"/>
+              <ellipse cx="100" cy="145" rx="50" ry="7" stroke="#8B7D4A" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+            </svg>
+            <span class="length-illu-label">22"</span>
+          </div>
+          <div class="length-rows">
+            <div class="length-row"><span class="length-row-label">Style Name</span><span class="length-row-value">Matinee</span></div>
+            <div class="length-row"><span class="length-row-label">Where It Sits</span><span class="length-row-value">At the top of the bust</span></div>
+            <div class="length-row">
+              <span class="length-row-label">Best Paired With</span><span class="length-row-value">High necklines, sweaters, business attire</span>
+              <span class="length-row-sub">Refined smart-casual wear</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 24" Opera -->
+        <div class="length-group">
+          <div class="length-illu">
+            <svg viewBox="0 0 200 200" fill="none" stroke="#1a1a1a" stroke-width="1.3" stroke-linejoin="round" stroke-linecap="round">
+              <path d="M100 14 C 84 14, 74 28, 74 44 C 74 60, 84 72, 100 72 C 116 72, 126 60, 126 44 C 126 28, 116 14, 100 14z"/>
+              <path d="M90 72 L 90 96 L 110 96 L 110 72"/>
+              <path d="M20 195 C 20 155, 58 102, 100 102 C 142 102, 180 155, 180 195"/>
+              <ellipse cx="100" cy="162" rx="54" ry="7.5" stroke="#8B7D4A" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="0.1 5"/>
+            </svg>
+            <span class="length-illu-label">24"</span>
+          </div>
+          <div class="length-rows">
+            <div class="length-row"><span class="length-row-label">Style Name</span><span class="length-row-value">Opera</span></div>
+            <div class="length-row"><span class="length-row-label">Where It Sits</span><span class="length-row-value">Below the bust — or doubled at the collarbone</span></div>
+            <div class="length-row">
+              <span class="length-row-label">Best Paired With</span><span class="length-row-value">Evening wear, column dresses, silk tops</span>
+              <span class="length-row-sub">Wear single — or doubled as choker + princess</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== STICKY BUY BAR ===== -->
+  <div class="sticky-buy-bar" id="stickyBuyBar">
+    <div class="sticky-buy-inner">
+      <div class="sticky-buy-product">
+        <img src="产品页主图/1.webp" alt="" class="sticky-buy-img">
+        <div class="sticky-buy-info">
+          <p class="sticky-buy-name">Akoya Pearl Strand Necklace</p>
+          <p class="sticky-buy-price">$385.00 <span class="sticky-buy-original">$520.00</span></p>
+        </div>
+      </div>
+      <div class="sticky-buy-options">
+        <select class="sticky-buy-select">
+          <option>White Rosé</option>
+          <option>Pink</option>
+          <option>Golden</option>
+          <option>Tahitian</option>
+        </select>
+        <select class="sticky-buy-select">
+          <option>18"</option>
+          <option>16"</option>
+          <option>20"</option>
+          <option>22"</option>
+          <option>24"</option>
+        </select>
+      </div>
+      <button class="sticky-buy-btn sans">Buy Now</button>
+    </div>
+  </div>
+
+  <script>
+    /* Announcement slider (identical) */
+    (function() {
+      var slides = document.querySelectorAll('.announcement-slide');
+      var prevBtn = document.querySelector('.announcement-arrow--prev');
+      var nextBtn = document.querySelector('.announcement-arrow--next');
+      var current = 0, timer;
+      function goTo(next) {
+        slides[current].classList.remove('active');
+        slides[current].classList.add('exit-up');
+        var prev = current;
+        setTimeout(function() { slides[prev].classList.remove('exit-up'); }, 500);
+        current = (next + slides.length) % slides.length;
+        slides[current].classList.add('active');
+      }
+      function startAuto() { clearInterval(timer); timer = setInterval(function() { goTo(current + 1); }, 3500); }
+      prevBtn.addEventListener('click', function() { goTo(current - 1); startAuto(); });
+      nextBtn.addEventListener('click', function() { goTo(current + 1); startAuto(); });
+      startAuto();
+    })();
+
+    /* Header hide/show + mega menu class */
+    (function() {
+      var header = document.getElementById('header');
+      var lastScrollY = 0;
+      window.addEventListener('scroll', function() {
+        var currentY = window.scrollY;
+        header.classList.toggle('scrolled', currentY > 100);
+        if (currentY > lastScrollY && currentY > 200) {
+          header.classList.add('header-hidden');
+        } else {
+          header.classList.remove('header-hidden');
+        }
+        lastScrollY = currentY;
+      });
+      document.querySelectorAll('.main-nav > li').forEach(function(li) {
+        if (li.querySelector('.mega-menu')) {
+          li.addEventListener('mouseenter', function() { header.classList.add('mega-open'); });
+          li.addEventListener('mouseleave', function() { header.classList.remove('mega-open'); });
+        }
+      });
+    })();
+
+    /* Hero story carousel */
+    (function() {
+      var slides = [
+        { title: 'Born Of The Sea, Refined By Hand', body: "Each pearl begins as a tiny grain, patiently nurtured for three to four years inside living oysters in Japan's cold, mineral-rich waters of Mie Prefecture." },
+        { title: 'The Top One Percent Of Each Harvest', body: 'From thousands of pearls, only a handful meet our AAA+ standard — mirror-bright luster, perfectly round, virtually flawless. We reject ninety-nine to keep one.' },
+        { title: 'An Heirloom, Built To Be Inherited', body: 'Hand-knotted on silk with a solid 18K gold clasp. Lifetime restringing service included. The strand you wear today is meant to be worn by your daughter, and hers after her.' }
+      ];
+      var mainImgs = document.querySelectorAll('#heroMain img');
+      var peekImgs = document.querySelectorAll('#heroPeek img');
+      var titleEl = document.getElementById('heroTitle');
+      var bodyEl = document.getElementById('heroBody');
+      var textEl = document.getElementById('heroText');
+      var prev = document.getElementById('heroPrev');
+      var next = document.getElementById('heroNext');
+      if (!mainImgs.length || !titleEl) return;
+      var current = 0;
+      function show(idx) {
+        current = (idx + slides.length) % slides.length;
+        mainImgs.forEach(function(img, i) { img.classList.toggle('active', i === current); });
+        peekImgs.forEach(function(img, i) { img.classList.toggle('active', i === current); });
+        textEl.classList.add('fading');
+        setTimeout(function() {
+          titleEl.textContent = slides[current].title;
+          bodyEl.textContent = slides[current].body;
+          textEl.classList.remove('fading');
+        }, 280);
+      }
+      prev.addEventListener('click', function() { show(current - 1); });
+      next.addEventListener('click', function() { show(current + 1); });
+    })();
+
+    /* PDP V2: Carousel (slides + thumbs + arrows) */
+    (function() {
+      var slides = document.querySelectorAll('.pdp2-slide');
+      var thumbs = document.querySelectorAll('.pdp2-thumb');
+      var prev = document.querySelector('.pdp2-arrow--prev');
+      var next = document.querySelector('.pdp2-arrow--next');
+      if (!slides.length) return;
+      var current = 0;
+      function show(idx) {
+        current = (idx + slides.length) % slides.length;
+        slides.forEach(function(s, i) { s.classList.toggle('active', i === current); });
+        thumbs.forEach(function(t, i) { t.classList.toggle('active', i === current); });
+      }
+      thumbs.forEach(function(t) {
+        t.addEventListener('click', function() { show(parseInt(t.getAttribute('data-idx'))); });
+      });
+      if (prev) prev.addEventListener('click', function() { show(current - 1); });
+      if (next) next.addEventListener('click', function() { show(current + 1); });
+    })();
+
+    /* Color selector */
+    document.querySelectorAll('.pdp2-color').forEach(function(c) {
+      c.addEventListener('click', function() {
+        document.querySelectorAll('.pdp2-color').forEach(function(x) { x.classList.remove('active'); });
+        c.classList.add('active');
+        var label = document.getElementById('pdp2ColorName');
+        if (label) label.textContent = c.getAttribute('data-name');
+      });
+    });
+
+    /* Length selector */
+    document.querySelectorAll('.pdp2-length').forEach(function(l) {
+      l.addEventListener('click', function() {
+        document.querySelectorAll('.pdp2-length').forEach(function(x) { x.classList.remove('active'); });
+        l.classList.add('active');
+        var label = document.getElementById('pdp2LenName');
+        if (label) label.textContent = l.getAttribute('data-len');
+      });
+    });
+
+    /* PDP accordions (AG1-style + / −) */
+    document.querySelectorAll('.pdp2-acc-hd').forEach(function(hd) {
+      hd.addEventListener('click', function() {
+        var acc = hd.parentElement;
+        var isOpen = acc.classList.toggle('open');
+        var icon = hd.querySelector('.pdp2-acc-icon');
+        if (icon) icon.textContent = isOpen ? '−' : '+';
+      });
+    });
+
+    /* Wavy underline reveal on scroll (matrix + compare) */
+    (function() {
+      var titles = document.querySelectorAll('.compare-v2-title');
+      if (!titles.length) return;
+      if (!('IntersectionObserver' in window)) {
+        titles.forEach(function(t) { t.classList.add('in-view'); });
+        return;
+      }
+      var obs = new IntersectionObserver(function(entries) {
+        entries.forEach(function(e) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in-view');
+            obs.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.4 });
+      titles.forEach(function(t) { obs.observe(t); });
+    })();
+
+    /* Grade pill selector */
+    document.querySelectorAll('.grade-pill').forEach(function(p) {
+      p.addEventListener('click', function() {
+        var id = p.getAttribute('data-grade');
+        document.querySelectorAll('.grade-pill').forEach(function(x) { x.classList.remove('active'); });
+        document.querySelectorAll('.grade-panel').forEach(function(x) { x.classList.remove('active'); });
+        p.classList.add('active');
+        var panel = document.querySelector('.grade-panel[data-panel="' + id + '"]');
+        if (panel) panel.classList.add('active');
+      });
+    });
+
+    /* Length Guide modal */
+    (function() {
+      var modal = document.getElementById('lengthModal');
+      var opener = document.querySelector('.pdp2-opt-size-guide');
+      if (!modal || !opener) return;
+      function open(e) {
+        if (e) e.preventDefault();
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('modal-open');
+      }
+      function close() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('modal-open');
+      }
+      opener.addEventListener('click', open);
+      modal.querySelectorAll('[data-length-close]').forEach(function(el) {
+        el.addEventListener('click', close);
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('open')) close();
+      });
+    })();
+
+    /* Testimonials dot navigation + autoplay */
+    (function() {
+      var dots = document.querySelectorAll('.t-dot');
+      var slides = document.querySelectorAll('.testimonial-slide');
+      if (!dots.length || !slides.length) return;
+      var current = 0, timer;
+      function show(idx) {
+        current = idx;
+        dots.forEach(function(d, i) { d.classList.toggle('active', i === idx); });
+        slides.forEach(function(s, i) { s.classList.toggle('active', i === idx); });
+      }
+      function start() {
+        clearInterval(timer);
+        timer = setInterval(function() {
+          show((current + 1) % slides.length);
+        }, 6000);
+      }
+      dots.forEach(function(d) {
+        d.addEventListener('click', function() {
+          show(parseInt(d.getAttribute('data-tslide')));
+          start();
+        });
+      });
+      start();
+    })();
+
+    /* Curated carousel: per-item slot sliding */
+    (function() {
+      var list = [
+        { name: 'Akoya Strand', price: 'From $385 USD', img: '模特图/Necklaces1模特.webp', tag: 'Sale', url: 'product.html' },
+        { name: 'Venetian Drops', price: 'From $245 USD', img: '模特图/Necklaces2模特.webp', url: 'product.html' },
+        { name: 'Baroque Pendant', price: 'From $260 USD', img: '模特图/Necklaces3模特.webp', tag: 'Sale', url: 'product.html' },
+        { name: 'Celestial Studs', price: 'From $180 USD', img: '模特图/Earrings1模特.webp', url: 'product.html' },
+        { name: 'Cascade Drops', price: 'From $210 USD', img: '模特图/Earrings2模特.webp', tag: 'Sale', url: 'product.html' },
+        { name: 'Solitaire Ring', price: 'From $320 USD', img: '模特图/Rings1模特.webp', url: 'product.html' },
+        { name: 'Twisted Band', price: 'From $210 USD', img: '模特图/Rings2模特.webp', url: 'product.html' },
+        { name: 'Silk Knot Choker', price: 'From $295 USD', img: '产品页主图/2.webp', bg: '#e1e5ef', url: 'product.html' }
+      ];
+      var N = list.length;
+      var track = document.getElementById('curatedTrack');
+      var prevBtn = document.getElementById('curatedPrev');
+      var nextBtn = document.getElementById('curatedNext');
+      if (!track || !prevBtn) return;
+      var items = track.querySelectorAll('.curated-item');
+      if (items.length !== 5) return;
+      var centerIdx = 2; // index in list of the product at center slot
+
+      function populate(el, product) {
+        var tagHtml = product.tag ? '<span class="curated-item-tag">' + product.tag + '</span>' : '';
+        var bgStyle = product.bg ? ' style="background:' + product.bg + '"' : '';
+        var url = product.url || '#';
+        el.innerHTML = '<a href="' + url + '" class="curated-item-link">' +
+          '<div class="curated-item-img"' + bgStyle + '>' + tagHtml +
+          '<img src="' + product.img + '" alt="' + product.name + '"></div>' +
+          '<p class="curated-item-label">' + product.name + '</p>' +
+          '<p class="curated-item-price">' + product.price + '</p>' +
+          '</a>' +
+          '<button type="button" class="curated-item-cta">Add to Cart</button>';
+      }
+      // Initial: slot i shows product at (centerIdx + i - 2)
+      items.forEach(function(el, i) {
+        var productIdx = (centerIdx + (i - 2) + N) % N;
+        populate(el, list[productIdx]);
+      });
+
+      var animating = false;
+      function slide(dir) {
+        if (animating) return;
+        animating = true;
+        var delta = dir === 'next' ? -1 : 1;
+        items.forEach(function(el) {
+          el.dataset.slot = String(parseInt(el.dataset.slot) + delta);
+        });
+        setTimeout(function() {
+          // Recycle the item that just went off to -1 (next) or 5 (prev)
+          var recycleSlot = dir === 'next' ? '-1' : '5';
+          var newSlot = dir === 'next' ? '4' : '0';
+          var newOffset = dir === 'next' ? 2 : -2;
+          centerIdx = (centerIdx + (dir === 'next' ? 1 : -1) + N) % N;
+          items.forEach(function(el) {
+            if (el.dataset.slot === recycleSlot) {
+              el.style.transition = 'none';
+              el.dataset.slot = newSlot;
+              var productIdx = (centerIdx + newOffset + N) % N;
+              populate(el, list[productIdx]);
+              void el.offsetHeight;
+              el.style.transition = '';
+            }
+          });
+          animating = false;
+        }, 560);
+      }
+      prevBtn.addEventListener('click', function() { slide('prev'); });
+      nextBtn.addEventListener('click', function() { slide('next'); });
+    })();
+
+    /* Signature Series: word-by-word fill on scroll */
+    (function() {
+      var section = document.querySelector('.art-series');
+      var headline = section ? section.querySelector('.art-series-headline') : null;
+      if (!section || !headline) return;
+      var lines = headline.querySelectorAll('.art-series-line');
+      lines.forEach(function(line) {
+        var tokens = line.textContent.split(/(\s+)/);
+        line.textContent = '';
+        tokens.forEach(function(tok) {
+          if (tok.length === 0) return;
+          if (/^\s+$/.test(tok)) { line.appendChild(document.createTextNode(tok)); }
+          else {
+            var span = document.createElement('span');
+            span.className = 'art-word';
+            span.textContent = tok;
+            line.appendChild(span);
+          }
+        });
+      });
+      var words = headline.querySelectorAll('.art-word');
+      function clamp(v) { return v < 0 ? 0 : v > 1 ? 1 : v; }
+      function updateColor() {
+        var rect = headline.getBoundingClientRect();
+        var vh = window.innerHeight || document.documentElement.clientHeight;
+        var center = rect.top + rect.height / 2;
+        var progress = clamp(1 - (center / vh));
+        var n = words.length;
+        words.forEach(function(w, i) {
+          var segStart = i / n;
+          var segEnd = (i + 1) / n;
+          var fill;
+          if (progress <= segStart) fill = 0;
+          else if (progress >= segEnd) fill = 1;
+          else fill = (progress - segStart) / (segEnd - segStart);
+          w.style.setProperty('--fill', (fill * 100) + '%');
+        });
+      }
+      window.addEventListener('scroll', updateColor, { passive: true });
+      window.addEventListener('resize', updateColor);
+      updateColor();
+    })();
+
+    /* Sticky buy bar */
+    (function() {
+      var bar = document.getElementById('stickyBuyBar');
+      var pdp = document.querySelector('.pdp2');
+      if (!bar || !pdp) return;
+      window.addEventListener('scroll', function() {
+        var rect = pdp.getBoundingClientRect();
+        bar.classList.toggle('visible', rect.bottom < 0);
+      });
+    })();
+  </script>
+</body>
+</html>
